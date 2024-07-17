@@ -1,0 +1,100 @@
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc"; @line = 1; ]
+import Toybox.Application;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc"; @line = 2; ]
+import Toybox.Graphics;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc"; @line = 3; ]
+import Toybox.Lang;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc"; @line = 4; ]
+import Toybox.System;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc"; @line = 5; ]
+import Toybox.WatchUi;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc"; @line = 6; ]
+import Toybox.Activity;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc"; @line = 7; ]
+import Toybox.Math;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc"; @line = 9; ]
+module Jacobs {
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc"; @line = 9; ]
+    <init> {
+    }
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc"; @line = 11; ]
+    class Tree{
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc"; @line = 11; ]
+        <init> {
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc"; @line = 11; ]
+        static
+        <init> {
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc"; @line = 20; @position = 19; ]
+        public
+        var nodes as Array<Node>;
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc"; @line = 21; @position = 19; ]
+        public
+        var weight as Float32 = 1.0;
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc"; @line = 22; @position = 19; ]
+        public
+        var previousResponse as Integer32 = 0;
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc"; @line = 26; ]
+        public
+        function initialize(size as Integer32) as Void {
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_Tree_mc_27_8_45_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc" 36 12 ]
+            %tmp.2 = 0;
+            %tmp.1 = newa Array<Node> %tmp.2;
+            putv self :nodes %tmp.1;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc" 39 12 ]
+            for @D_Masters_Dissertation_RandomForestApplication_source_random_forest_Tree_mc_39_12_44_12_for_test @D_Masters_Dissertation_RandomForestApplication_source_random_forest_Tree_mc_39_12_44_12_for_incr @D_Masters_Dissertation_RandomForestApplication_source_random_forest_Tree_mc_39_12_44_12_for_end;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_Tree_mc_39_12_44_12_for_init:
+            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_Tree_mc_39_12_44_12_for_begin" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_Tree_mc_39_12_44_12_for_end" ]
+            %i.1 = local;
+            %tmp.3 = 0;
+            lputv %i.1 %tmp.3;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_Tree_mc_39_12_44_12_for_test:
+            %tmp.5 = lgetv %i.1;
+            %tmp.7 = lgetv %size;
+            %tmp.8 = lt %tmp.5 %tmp.7;
+            bf %tmp.8 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_Tree_mc_39_12_44_12_for_end;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_Tree_mc_39_12_44_12_for_begin:
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_Tree_mc_40_12_44_12_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc" 41 16 ]
+            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_Tree_mc_40_12_44_12_start" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_Tree_mc_40_12_44_12_stop" ]
+            %randomHeuristic.2 = local;
+            %tmp.9 = getm $.Toybox.Math;
+            %tmp.10 = getv function %tmp.9 :rand;
+            %tmp.11 = invoke %tmp.9 %tmp.10();
+            %tmp.12 = 3;
+            %tmp.13 = mod %tmp.11 %tmp.12;
+            lputv %randomHeuristic.2 %tmp.13;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc" 42 16 ]
+            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_Tree_mc_40_12_44_12_start" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_Tree_mc_40_12_44_12_stop" ]
+            %randomMetric.3 = local;
+            %tmp.14 = getm $.Toybox.Math;
+            %tmp.15 = getv function %tmp.14 :rand;
+            %tmp.16 = invoke %tmp.14 %tmp.15();
+            %tmp.17 = 2;
+            %tmp.18 = bitand %tmp.16 %tmp.17;
+            lputv %randomMetric.3 %tmp.18;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc" 43 16 ]
+            %tmp.20 = getv ? :nodes;
+            %tmp.21 = getv function %tmp.20 :add;
+            %tmp.25 = getv ? :Node;
+            %tmp.27 = lgetv %randomHeuristic.2;
+            %tmp.29 = lgetv %randomMetric.3;
+            %tmp.22 = newc %tmp.25 (%tmp.27, %tmp.29);
+            invoke %tmp.20 %tmp.21(%tmp.22);
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_Tree_mc_40_12_44_12_stop:
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_Tree_mc_39_12_44_12_for_incr:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc" 39 ]
+            %tmp.32 = lgetv %i.1;
+            %tmp.33 = add %tmp.32 1;
+            lputv %i.1 %tmp.33;
+            goto @D_Masters_Dissertation_RandomForestApplication_source_random_forest_Tree_mc_39_12_44_12_for_test;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_Tree_mc_39_12_44_12_for_end:
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_Tree_mc_27_8_45_8_stop:
+        }
+    }
+}
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Tree.mc"; @line = 1; ]
+<init> {
+}

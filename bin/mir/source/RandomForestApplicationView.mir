@@ -19,20 +19,9 @@ class RandomForestApplicationView extends WatchUi.WatchFace{
         %tmp.1 = newc %tmp.4 ();
         putv self :layoutOrchestrator %tmp.1;
 [ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 17 16 ]
-        %tmp.5 = newa 3;
-        %tmp.9 = getv ? :Cadence;
-        %tmp.6 = newc %tmp.9 ();
-        %tmp.10 = dup %tmp.5;
-        %tmp.11 = aputv %tmp.10 0 %tmp.6;
-        %tmp.15 = getv ? :Pace;
-        %tmp.12 = newc %tmp.15 ();
-        %tmp.16 = dup %tmp.11;
-        %tmp.17 = aputv %tmp.16 1 %tmp.12;
-        %tmp.21 = getv ? :HeartRate;
-        %tmp.18 = newc %tmp.21 ();
-        %tmp.22 = dup %tmp.17;
-        %tmp.23 = aputv %tmp.22 2 %tmp.18;
-        putv self :_metrics %tmp.23;
+        %tmp.8 = getv ? :RandomForest;
+        %tmp.5 = newc %tmp.8 ();
+        putv self :_randomForest %tmp.5;
     }
     [ @file = "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc"; @line = 9; ]
     static
@@ -46,7 +35,7 @@ class RandomForestApplicationView extends WatchUi.WatchFace{
     var layoutOrchestrator as LayoutOrchestrator;
     [ @file = "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc"; @line = 17; @position = 16; ]
     private
-    var _metrics;
+    var _randomForest as RandomForest;
     [ @file = "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc"; @line = 21; ]
     function initialize() as Void {
 D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_22_4_24_4_start:
@@ -72,172 +61,78 @@ D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationVie
     }
     [ @file = "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc"; @line = 33; ]
     function onUpdate(dc as Dc) as Void {
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_76_4_start:
+D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_52_4_start:
 [ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 36 8 ]
         %tmp.2 = getv ? :View;
         %tmp.3 = getv function %tmp.2 :onUpdate;
         %tmp.5 = lgetv %dc;
         invoke %tmp.2 %tmp.3(%tmp.5);
 [ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 39 8 ]
-        [ "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_76_4_start" "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_76_4_stop" ]
-        %activity.1 = local;
-        %tmp.7 = getv ? :Activity;
-        %tmp.8 = getv function %tmp.7 :getActivityInfo;
+        [ "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_52_4_start" "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_52_4_stop" ]
+        %results.1 = local;
+        %tmp.7 = getv ? :_randomForest;
+        %tmp.8 = getv function %tmp.7 :evaluate;
         %tmp.9 = invoke %tmp.7 %tmp.8();
-        lputv %activity.1 %tmp.9;
+        lputv %results.1 %tmp.9;
 [ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 40 8 ]
-        [ "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_76_4_start" "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_76_4_stop" ]
-        %queue.2 = local;
-        %tmp.13 = getv ? :MetricQueue;
-        %tmp.10 = newc %tmp.13 ();
-        lputv %queue.2 %tmp.10;
+        [ "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_52_4_start" "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_52_4_stop" ]
+        %metrics.2 = local;
+        %tmp.10 = newa 0;
+        lputv %metrics.2 %tmp.10;
 [ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 41 8 ]
-        [ "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_76_4_start" "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_76_4_stop" ]
-        %result.3 = local;
-        %tmp.14 = newa 0;
-        lputv %result.3 %tmp.14;
-[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 42 8 ]
-        [ "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_76_4_start" "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_76_4_stop" ]
-        %maximumPriority.4 = local;
-        %tmp.15 = 0;
-        lputv %maximumPriority.4 %tmp.15;
-[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 43 8 ]
-        [ "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_76_4_start" "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_76_4_stop" ]
-        %priority.5 = local;
-        %tmp.16 = 0;
-        lputv %priority.5 %tmp.16;
+        [ "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_52_4_start" "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_52_4_stop" ]
+        %previousPriority.3 = local;
+        %tmp.11 = 0;
+        lputv %previousPriority.3 %tmp.11;
 [ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 44 8 ]
-        [ "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_76_4_start" "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_76_4_stop" ]
-        %heuristics.6 = local;
-        %tmp.17 = newa 0;
-        lputv %heuristics.6 %tmp.17;
-[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 47 8 ]
-        for @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_8_59_8_for_test @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_8_59_8_for_incr @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_8_59_8_for_end;
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_8_59_8_for_init:
-        [ "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_8_59_8_for_begin" "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_8_59_8_for_end" ]
-        %i.7 = local;
-        %tmp.18 = 0;
-        lputv %i.7 %tmp.18;
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_8_59_8_for_test:
-        %tmp.20 = lgetv %i.7;
-        %tmp.22 = getv ? :_metrics;
-        %tmp.23 = getv function %tmp.22 :size;
-        %tmp.24 = invoke %tmp.22 %tmp.23();
-        %tmp.25 = lt %tmp.20 %tmp.24;
-        bf %tmp.25 @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_8_59_8_for_end;
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_8_59_8_for_begin:
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_48_8_59_8_start:
-[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 50 12 ]
-        %tmp.27 = getv ? :_metrics;
-        %tmp.29 = lgetv %i.7;
-        %tmp.30 = agetv %tmp.27 %tmp.29;
-        %tmp.31 = getv function %tmp.30 :addSample;
-        %tmp.33 = lgetv %activity.1;
-        invoke %tmp.30 %tmp.31(%tmp.33);
-[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 53 12 ]
-        %tmp.35 = getv ? :_metrics;
-        %tmp.37 = lgetv %i.7;
-        %tmp.38 = agetv %tmp.35 %tmp.37;
-        %tmp.39 = getv function %tmp.38 :getHeuristicsAsArray;
-        %tmp.40 = invoke %tmp.38 %tmp.39();
-        lputv %heuristics.6 %tmp.40;
-[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 54 12 ]
-        %tmp.42 = lgetv %heuristics.6;
-        %tmp.43 = 0;
-        %tmp.44 = agetv %tmp.42 %tmp.43;
-        %tmp.46 = lgetv %heuristics.6;
-        %tmp.47 = 1;
-        %tmp.48 = agetv %tmp.46 %tmp.47;
-        %tmp.49 = add %tmp.44 %tmp.48;
-        %tmp.51 = lgetv %heuristics.6;
-        %tmp.52 = 2;
-        %tmp.53 = agetv %tmp.51 %tmp.52;
-        %tmp.54 = add %tmp.49 %tmp.53;
-        %tmp.56 = lgetv %heuristics.6;
-        %tmp.57 = 3;
-        %tmp.58 = agetv %tmp.56 %tmp.57;
-        %tmp.59 = mul %tmp.54 %tmp.58;
-        lputv %priority.5 %tmp.59;
-[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 56 12 ]
-        %tmp.60 = lgetv %queue.2;
-        %tmp.61 = getv function %tmp.60 :enqueue;
-        %tmp.63 = getv ? :_metrics;
-        %tmp.65 = lgetv %i.7;
-        %tmp.66 = agetv %tmp.63 %tmp.65;
-        %tmp.68 = lgetv %priority.5;
-        invoke %tmp.60 %tmp.61(%tmp.66, %tmp.68);
-[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 58 12 ]
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_58_12_58_73_if_stmt:
-        %tmp.70 = lgetv %maximumPriority.4;
-        %tmp.72 = lgetv %priority.5;
-        %tmp.73 = lt %tmp.70 %tmp.72;
-        bf %tmp.73 @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_58_12_58_73_if_end;
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_58_12_58_73_if_true:
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_58_43_58_73_start:
-[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 58 45 ]
-        %tmp.75 = lgetv %priority.5;
-        lputv %maximumPriority.4 %tmp.75;
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_58_43_58_73_stop:
-        goto @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_58_12_58_73_if_end;
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_58_12_58_73_if_end:
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_48_8_59_8_stop:
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_8_59_8_for_incr:
-[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 47 ]
-        %tmp.78 = lgetv %i.7;
-        %tmp.79 = add %tmp.78 1;
-        lputv %i.7 %tmp.79;
-        goto @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_8_59_8_for_test;
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_8_59_8_for_end:
-[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 62 8 ]
-        [ "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_76_4_start" "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_76_4_stop" ]
-        %item.8 = local;
-        %tmp.80 = null;
-        lputv %item.8 %tmp.80;
-[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 64 8 ]
-        while @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_64_8_72_8_while_test @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_64_8_72_8_while_end;
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_64_8_72_8_while_test:
-        %tmp.81 = lgetv %queue.2;
-        %tmp.82 = getv function %tmp.81 :isEmpty;
-        %tmp.83 = invoke %tmp.81 %tmp.82();
-        %tmp.84 = not %tmp.83;
-        bf %tmp.84 @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_64_8_72_8_while_end;
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_64_8_72_8_while_begin:
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_65_8_72_8_start:
-[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 66 12 ]
-        %tmp.85 = lgetv %queue.2;
-        %tmp.86 = getv function %tmp.85 :dequeue;
-        %tmp.87 = invoke %tmp.85 %tmp.86();
-        lputv %item.8 %tmp.87;
-[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 68 12 ]
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_68_12_71_12_if_stmt:
-        %tmp.89 = lgetv %maximumPriority.4;
-        %tmp.90 = lgetv %item.8;
-        %tmp.91 = getv %tmp.90 :priority;
-        %tmp.92 = sub %tmp.89 %tmp.91;
-        %tmp.94 = getv ? :_TOLERANCE;
-        %tmp.95 = lt %tmp.92 %tmp.94;
-        bf %tmp.95 @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_68_12_71_12_if_end;
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_68_12_71_12_if_true:
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_69_12_71_12_start:
-[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 70 16 ]
-        %tmp.96 = lgetv %result.3;
-        %tmp.97 = getv function %tmp.96 :add;
-        %tmp.98 = lgetv %item.8;
-        %tmp.99 = getv %tmp.98 :metric;
-        invoke %tmp.96 %tmp.97(%tmp.99);
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_69_12_71_12_stop:
-        goto @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_68_12_71_12_if_end;
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_68_12_71_12_if_end:
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_65_8_72_8_stop:
-        goto @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_64_8_72_8_while_test;
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_64_8_72_8_while_end:
-[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 75 8 ]
-        %tmp.101 = getv ? :layoutOrchestrator;
-        %tmp.102 = getv function %tmp.101 :draw;
-        %tmp.104 = lgetv %result.3;
-        %tmp.106 = lgetv %dc;
-        invoke %tmp.101 %tmp.102(%tmp.104, %tmp.106);
-D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_76_4_stop:
+        while @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_44_8_49_8_while_test @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_44_8_49_8_while_end;
+D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_44_8_49_8_while_test:
+        %tmp.12 = lgetv %results.1;
+        %tmp.13 = getv function %tmp.12 :isEmpty;
+        %tmp.14 = invoke %tmp.12 %tmp.13();
+        %tmp.15 = not %tmp.14;
+        bf %tmp.15 @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_44_8_49_8_while_end;
+D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_44_8_49_8_while_begin:
+D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_45_8_49_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 46 12 ]
+        [ "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_45_8_49_8_start" "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_45_8_49_8_stop" ]
+        %item.4 = local;
+        %tmp.16 = lgetv %results.1;
+        %tmp.17 = getv function %tmp.16 :dequeue;
+        %tmp.18 = invoke %tmp.16 %tmp.17();
+        lputv %item.4 %tmp.18;
+[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 47 12 ]
+D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_12_47_74_if_stmt:
+        %tmp.20 = lgetv %previousPriority.3;
+        %tmp.21 = lgetv %item.4;
+        %tmp.22 = getv %tmp.21 :priority;
+        %tmp.23 = sub %tmp.20 %tmp.22;
+        %tmp.25 = getv ? :_TOLERANCE;
+        %tmp.26 = gt %tmp.23 %tmp.25;
+        bf %tmp.26 @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_12_47_74_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_12_47_74_if_true:
+D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_62_47_74_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 47 64 ]
+        goto @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_44_8_49_8_while_test;
+D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_62_47_74_stop:
+        goto @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_12_47_74_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_12_47_74_if_end:
+[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 48 12 ]
+        %tmp.27 = lgetv %metrics.2;
+        %tmp.28 = getv function %tmp.27 :add;
+        %tmp.29 = lgetv %item.4;
+        %tmp.30 = getv %tmp.29 :metric;
+        invoke %tmp.27 %tmp.28(%tmp.30);
+D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_45_8_49_8_stop:
+        goto @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_44_8_49_8_while_test;
+D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_44_8_49_8_while_end:
+[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 51 8 ]
+        %tmp.32 = getv ? :layoutOrchestrator;
+        %tmp.33 = getv function %tmp.32 :draw;
+        %tmp.35 = lgetv %metrics.2;
+        %tmp.37 = lgetv %dc;
+        invoke %tmp.32 %tmp.33(%tmp.35, %tmp.37);
+D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_52_4_stop:
     }
 }
 [ @file = "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc"; @line = 1; ]

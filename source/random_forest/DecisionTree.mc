@@ -52,7 +52,7 @@ module Jacobs
 
 
         // Methods:
-        public function evaluate() as Metric or Null
+        public function evaluate() as MetricQueue
         {
             /**
             * Evaluates the metrics using the random forest.
@@ -73,6 +73,7 @@ module Jacobs
             var currentNode = null;
             var tree = null;
             var heuristicValue = 0;
+            var highestPriority = 0;
 
             // Evaluate each decision tree in the forest.
             for(var i = 0; i <_trees.size(); i++)
@@ -109,21 +110,16 @@ module Jacobs
 
 
             // Finally, determine the metric with the most positive recommendations.
-            var result = null;
+            var results = new MetricQueue();
             var resultValue = 0;
 
             for(var i = 0; i < metricResults.size(); i++)
             {
-                if(result == null || metricResults[i] > resultValue)
-                {
-                    resultValue = metricResults[i];
-                    result = _metrics[i];
-                    _previousResponse = i;
-                }
+                results.enqueue(_metrics[i], metricResults[i]);
             }
 
 
-            return result;
+            return results;
         }
     }
 }

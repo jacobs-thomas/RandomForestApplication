@@ -14,7 +14,7 @@ class RandomForestApplicationView extends WatchUi.WatchFace
 
     // Instance Attributes:
     private var layoutOrchestrator as LayoutOrchestrator = new LayoutOrchestrator();
-    private var _metrics = [new Cadence(), new Pace(), new HeartRate()];
+    private var _randomForest as RandomForest = new RandomForest();
 
 
     // Constructor:
@@ -35,43 +35,19 @@ class RandomForestApplicationView extends WatchUi.WatchFace
         // Update and clear the previous view frame.
         View.onUpdate(dc);
 
-        // Cache these variables to optimise their frequent use.
-        var activity = Activity.getActivityInfo();
-        var queue = new MetricQueue();
-        var result = [];
-        var maximumPriority = 0;
-        var priority = 0;
-        var heuristics = [];
+        // Draw filtered metrics.
+        var results = _randomForest.evaluate();
+        var metrics = [];
+        var previousPriority = 0;
+        
 
-        // Collect and prioritise metrics
-        for (var i = 0; i < _metrics.size(); i++)
+        while(!results.isEmpty())
         {
-            // Add a new sample using the latest activity info.
-            _metrics[i].addSample(activity);
-
-
-            heuristics = _metrics[i].getHeuristicsAsArray();
-            priority = (heuristics[0] + heuristics[1] + heuristics[2]) * heuristics[3];
-
-            queue.enqueue(_metrics[i], priority);
-
-            if(maximumPriority < priority) { maximumPriority = priority; }
+            var item = results.dequeue();
+            if(previousPriority - item.priority > _TOLERANCE) { continue; }
+            metrics.add(item.metric);
         }
 
-        // Filter metrics based on the tolerance threshold
-        var item = null;
-
-        while (!queue.isEmpty())
-        {
-            item = queue.dequeue();
-
-            if(maximumPriority - item.priority < _TOLERANCE)
-            {
-                result.add(item.metric);
-            }
-        }
-
-        // Draw filtered metrics
-        layoutOrchestrator.draw(result, dc);
+        layoutOrchestrator.draw(metrics, dc);
     }
 }

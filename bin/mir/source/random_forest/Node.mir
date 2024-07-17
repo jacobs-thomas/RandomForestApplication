@@ -1,0 +1,54 @@
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Node.mc"; @line = 1; ]
+import Toybox.Application;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Node.mc"; @line = 2; ]
+import Toybox.Graphics;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Node.mc"; @line = 3; ]
+import Toybox.Lang;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Node.mc"; @line = 4; ]
+import Toybox.System;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Node.mc"; @line = 5; ]
+import Toybox.WatchUi;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Node.mc"; @line = 6; ]
+import Toybox.Activity;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Node.mc"; @line = 7; ]
+import Toybox.Math;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Node.mc"; @line = 9; ]
+module Jacobs {
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Node.mc"; @line = 9; ]
+    <init> {
+    }
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Node.mc"; @line = 11; ]
+    class Node{
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Node.mc"; @line = 11; ]
+        <init> {
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Node.mc"; @line = 11; ]
+        static
+        <init> {
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Node.mc"; @line = 20; @position = 19; ]
+        public
+        var heuristic as Numeric32 = 0;
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Node.mc"; @line = 21; @position = 19; ]
+        public
+        var metric as Numeric32 = 0;
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Node.mc"; @line = 22; @position = 19; ]
+        public
+        var value as Numeric32 = 0;
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Node.mc"; @line = 26; ]
+        public
+        function initialize(heuristic as Numeric32, metric as Numeric32) as Void {
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_Node_mc_27_8_38_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Node.mc" 36 12 ]
+            %tmp.2 = lgetv %heuristic;
+            putv self :heuristic %tmp.2;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Node.mc" 37 12 ]
+            %tmp.4 = lgetv %metric;
+            putv self :metric %tmp.4;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_Node_mc_27_8_38_8_stop:
+        }
+    }
+}
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\Node.mc"; @line = 1; ]
+<init> {
+}
