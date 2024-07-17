@@ -1,0 +1,415 @@
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 1; ]
+import Toybox.Application;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 2; ]
+import Toybox.Graphics;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 3; ]
+import Toybox.Lang;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 4; ]
+import Toybox.System;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 5; ]
+import Toybox.WatchUi;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 6; ]
+import Toybox.Activity;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 7; ]
+import Toybox.Math;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 9; ]
+module Jacobs {
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 9; ]
+    <init> {
+    }
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 11; ]
+    enum Heuristic {
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 13; @position = 8; ]
+        FLUCTUATION = 0,
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 14; @position = 8; ]
+        RATE_OF_CHANGE = 1,
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 15; @position = 8; ]
+        RANGE = 2,
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 16; @position = 8; ]
+        USER_PRIORITY = 3,
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 17; @position = 8; ]
+        LENGTH = 4,
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 18; @position = 8; ]
+        NUMBER_OF_HEURISTICS = 4
+    }
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 21; ]
+    class Metric{
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 21; ]
+        <init> {
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 28 19 ]
+            %tmp.4 = getv ? :Range;
+            %tmp.5 = 0;
+            %tmp.6 = 200;
+            %tmp.1 = newc %tmp.4 (%tmp.5, %tmp.6);
+            putv self :range %tmp.1;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 31 20 ]
+            %tmp.8 = 0;
+            %tmp.7 = newa Array<Numeric32> %tmp.8;
+            putv self :_samples %tmp.7;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 32 20 ]
+            %tmp.10 = 0;
+            %tmp.9 = newa Array<Numeric32> %tmp.10;
+            putv self :_heuristics %tmp.9;
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 21; ]
+        static
+        <init> {
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 24; @position = 24; ]
+        protected
+        const _NUMBER_OF_SAMPLES as Integer32 = 4;
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 28; @position = 19; ]
+        public
+        var range as Range;
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 29; @position = 19; ]
+        public
+        var userPriority as Numeric32 = 1;
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 31; @position = 20; ]
+        private
+        var _samples as Array<Numeric32>;
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 32; @position = 20; ]
+        private
+        var _heuristics as Array<Numeric32>;
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 36; ]
+        public
+        function initialize() as Void {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_36_37_36_108_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 36 39 ]
+            for @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_36_39_36_106_for_test @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_36_39_36_106_for_incr @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_36_39_36_106_for_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_36_39_36_106_for_init:
+            [ "D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_36_39_36_106_for_begin" "D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_36_39_36_106_for_end" ]
+            %i.1 = local;
+            %tmp.1 = 0;
+            lputv %i.1 %tmp.1;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_36_39_36_106_for_test:
+            %tmp.3 = lgetv %i.1;
+            %tmp.5 = getv ? :LENGTH;
+            %tmp.6 = as %tmp.5 Integer32;
+            %tmp.7 = lt %tmp.3 %tmp.6;
+            bf %tmp.7 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_36_39_36_106_for_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_36_39_36_106_for_begin:
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_36_84_36_106_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 36 86 ]
+            %tmp.9 = getv ? :_heuristics;
+            %tmp.10 = getv function %tmp.9 :add;
+            %tmp.11 = 0;
+            invoke %tmp.9 %tmp.10(%tmp.11);
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_36_84_36_106_stop:
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_36_39_36_106_for_incr:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 36 ]
+            %tmp.14 = lgetv %i.1;
+            %tmp.15 = add %tmp.14 1;
+            lputv %i.1 %tmp.15;
+            goto @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_36_39_36_106_for_test;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_36_39_36_106_for_end:
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_36_37_36_108_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 40; ]
+        public
+        function addSample(activity as Activity.Info) as Void {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_41_8_75_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 43 12 ]
+            %tmp.2 = getv ? :_samples;
+            %tmp.3 = getv function %tmp.2 :add;
+            %tmp.4 = lgetv %self;
+            %tmp.5 = getv function %tmp.4 :getCurrent;
+            %tmp.7 = lgetv %activity;
+            %tmp.8 = invoke %tmp.4 %tmp.5(%tmp.7);
+            invoke %tmp.2 %tmp.3(%tmp.8);
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 46 12 ]
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_46_12_46_85_if_stmt:
+            %tmp.10 = getv ? :_samples;
+            %tmp.11 = getv function %tmp.10 :size;
+            %tmp.12 = invoke %tmp.10 %tmp.11();
+            %tmp.14 = getv ? :_NUMBER_OF_SAMPLES;
+            %tmp.15 = gt %tmp.12 %tmp.14;
+            bf %tmp.15 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_46_12_46_85_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_46_12_46_85_if_true:
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_46_53_46_85_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 46 55 ]
+            %tmp.17 = getv ? :_samples;
+            %tmp.18 = getv function %tmp.17 :remove;
+            %tmp.20 = getv ? :_samples;
+            %tmp.21 = 0;
+            %tmp.22 = agetv %tmp.20 %tmp.21;
+            invoke %tmp.17 %tmp.18(%tmp.22);
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_46_53_46_85_stop:
+            goto @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_46_12_46_85_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_46_12_46_85_if_end:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 49 12 ]
+            [ "D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_41_8_75_8_start" "D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_41_8_75_8_stop" ]
+            %minimumValue.1 = local;
+            %tmp.24 = getv ? :_samples;
+            %tmp.25 = 0;
+            %tmp.26 = agetv %tmp.24 %tmp.25;
+            lputv %minimumValue.1 %tmp.26;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 50 12 ]
+            [ "D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_41_8_75_8_start" "D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_41_8_75_8_stop" ]
+            %maximumValue.2 = local;
+            %tmp.28 = getv ? :_samples;
+            %tmp.29 = 0;
+            %tmp.30 = agetv %tmp.28 %tmp.29;
+            lputv %maximumValue.2 %tmp.30;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 51 12 ]
+            [ "D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_41_8_75_8_start" "D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_41_8_75_8_stop" ]
+            %mean.3 = local;
+            %tmp.31 = 0;
+            lputv %mean.3 %tmp.31;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 52 12 ]
+            [ "D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_41_8_75_8_start" "D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_41_8_75_8_stop" ]
+            %deviation.4 = local;
+            %tmp.32 = 0;
+            lputv %deviation.4 %tmp.32;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 55 12 ]
+            for @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_55_12_58_12_for_test @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_55_12_58_12_for_incr @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_55_12_58_12_for_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_55_12_58_12_for_init:
+            [ "D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_55_12_58_12_for_begin" "D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_55_12_58_12_for_end" ]
+            %i.5 = local;
+            %tmp.33 = 1;
+            lputv %i.5 %tmp.33;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_55_12_58_12_for_test:
+            %tmp.35 = lgetv %i.5;
+            %tmp.37 = getv ? :_samples;
+            %tmp.38 = getv function %tmp.37 :size;
+            %tmp.39 = invoke %tmp.37 %tmp.38();
+            %tmp.40 = lt %tmp.35 %tmp.39;
+            bf %tmp.40 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_55_12_58_12_for_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_55_12_58_12_for_begin:
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_56_12_58_12_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 57 16 ]
+            %tmp.41 = lgetv %mean.3;
+            %tmp.43 = getv ? :_samples;
+            %tmp.45 = lgetv %i.5;
+            %tmp.46 = agetv %tmp.43 %tmp.45;
+            %tmp.47 = add %tmp.41 %tmp.46;
+            lputv %mean.3 %tmp.47;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_56_12_58_12_stop:
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_55_12_58_12_for_incr:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 55 ]
+            %tmp.50 = lgetv %i.5;
+            %tmp.51 = add %tmp.50 1;
+            lputv %i.5 %tmp.51;
+            goto @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_55_12_58_12_for_test;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_55_12_58_12_for_end:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 60 12 ]
+            %tmp.53 = lgetv %mean.3;
+            %tmp.55 = getv ? :_samples;
+            %tmp.56 = getv function %tmp.55 :size;
+            %tmp.57 = invoke %tmp.55 %tmp.56();
+            %tmp.58 = div %tmp.53 %tmp.57;
+            lputv %mean.3 %tmp.58;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 63 12 ]
+            for @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_63_12_70_12_for_test @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_63_12_70_12_for_incr @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_63_12_70_12_for_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_63_12_70_12_for_init:
+            [ "D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_63_12_70_12_for_begin" "D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_63_12_70_12_for_end" ]
+            %i.6 = local;
+            %tmp.59 = 1;
+            lputv %i.6 %tmp.59;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_63_12_70_12_for_test:
+            %tmp.61 = lgetv %i.6;
+            %tmp.63 = getv ? :_samples;
+            %tmp.64 = getv function %tmp.63 :size;
+            %tmp.65 = invoke %tmp.63 %tmp.64();
+            %tmp.66 = lt %tmp.61 %tmp.65;
+            bf %tmp.66 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_63_12_70_12_for_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_63_12_70_12_for_begin:
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_64_12_70_12_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 66 16 ]
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_66_16_67_83_if_stmt:
+            %tmp.68 = getv ? :_samples;
+            %tmp.70 = lgetv %i.6;
+            %tmp.71 = agetv %tmp.68 %tmp.70;
+            %tmp.73 = lgetv %maximumValue.2;
+            %tmp.74 = gt %tmp.71 %tmp.73;
+            bf %tmp.74 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_66_16_67_83_if_false;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_66_16_67_83_if_true:
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_66_47_66_77_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 66 49 ]
+            %tmp.76 = getv ? :_samples;
+            %tmp.78 = lgetv %i.6;
+            %tmp.79 = agetv %tmp.76 %tmp.78;
+            lputv %maximumValue.2 %tmp.79;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_66_47_66_77_stop:
+            goto @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_66_16_67_83_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_66_16_67_83_if_false:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 67 21 ]
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_67_21_67_83_if_stmt:
+            %tmp.81 = getv ? :_samples;
+            %tmp.83 = lgetv %i.6;
+            %tmp.84 = agetv %tmp.81 %tmp.83;
+            %tmp.86 = lgetv %minimumValue.1;
+            %tmp.87 = lt %tmp.84 %tmp.86;
+            bf %tmp.87 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_67_21_67_83_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_67_21_67_83_if_true:
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_67_53_67_83_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 67 55 ]
+            %tmp.89 = getv ? :_samples;
+            %tmp.91 = lgetv %i.6;
+            %tmp.92 = agetv %tmp.89 %tmp.91;
+            lputv %minimumValue.1 %tmp.92;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_67_53_67_83_stop:
+            goto @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_67_21_67_83_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_67_21_67_83_if_end:
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_66_16_67_83_if_end:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 69 16 ]
+            %tmp.93 = lgetv %deviation.4;
+            %tmp.94 = getm $.Toybox.Math;
+            %tmp.95 = getv function %tmp.94 :pow;
+            %tmp.97 = getv ? :_samples;
+            %tmp.99 = lgetv %i.6;
+            %tmp.100 = agetv %tmp.97 %tmp.99;
+            %tmp.102 = lgetv %mean.3;
+            %tmp.103 = sub %tmp.100 %tmp.102;
+            %tmp.104 = 2;
+            %tmp.105 = invoke %tmp.94 %tmp.95(%tmp.103, %tmp.104);
+            %tmp.106 = add %tmp.93 %tmp.105;
+            lputv %deviation.4 %tmp.106;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_64_12_70_12_stop:
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_63_12_70_12_for_incr:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 63 ]
+            %tmp.109 = lgetv %i.6;
+            %tmp.110 = add %tmp.109 1;
+            lputv %i.6 %tmp.110;
+            goto @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_63_12_70_12_for_test;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_63_12_70_12_for_end:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 72 12 ]
+            [ "D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_41_8_75_8_start" "D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_41_8_75_8_stop" ]
+            %root.7 = local;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_72_24_72_64_begin:
+            %tmp.112 = lgetv %mean.3;
+            %tmp.113 = 0;
+            %tmp.114 = eq %tmp.112 %tmp.113;
+            bf %tmp.114 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_72_24_72_64_false;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_72_24_72_64_true:
+            %tmp.115 = 0;
+            push %tmp.115;
+            goto @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_72_24_72_64_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_72_24_72_64_false:
+            %tmp.116 = getm $.Toybox.Math;
+            %tmp.117 = getv function %tmp.116 :sqrt;
+            %tmp.119 = lgetv %deviation.4;
+            %tmp.121 = lgetv %mean.3;
+            %tmp.122 = div %tmp.119 %tmp.121;
+            %tmp.123 = invoke %tmp.116 %tmp.117(%tmp.122);
+            push %tmp.123;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_72_24_72_64_end:
+            %tmp.124 = phi [%tmp.114 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_72_24_72_64_begin] [%tmp.115 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_72_24_72_64_true] [%tmp.123 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_72_24_72_64_false] [%tmp.124 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_72_24_72_64_end];
+            lputv %root.7 %tmp.124;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 74 12 ]
+            %tmp.125 = newa 4;
+            %tmp.127 = lgetv %root.7;
+            %tmp.128 = dup %tmp.125;
+            %tmp.129 = aputv %tmp.128 0 %tmp.127;
+            %tmp.131 = lgetv %maximumValue.2;
+            %tmp.133 = lgetv %minimumValue.1;
+            %tmp.134 = sub %tmp.131 %tmp.133;
+            %tmp.135 = dup %tmp.129;
+            %tmp.136 = aputv %tmp.135 1 %tmp.134;
+            %tmp.138 = getv ? :range;
+            %tmp.139 = getv function %tmp.138 :deviation;
+            %tmp.141 = lgetv %mean.3;
+            %tmp.142 = invoke %tmp.138 %tmp.139(%tmp.141);
+            %tmp.143 = dup %tmp.136;
+            %tmp.144 = aputv %tmp.143 2 %tmp.142;
+            %tmp.146 = getv ? :userPriority;
+            %tmp.147 = dup %tmp.144;
+            %tmp.148 = aputv %tmp.147 3 %tmp.146;
+            putv self :_heuristics %tmp.148;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_41_8_75_8_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 77; ]
+        public
+        function getName() as String {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_77_44_77_69_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 77 46 ]
+            %tmp.1 = "DEFAULT_NAME";
+            ret %tmp.1;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_77_44_77_69_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 78; ]
+        public
+        function getHeuristics() as HeuristicsInfo {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_78_58_78_148_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 78 60 ]
+            %tmp.4 = getv ? :HeuristicsInfo;
+            %tmp.6 = getv ? :_heuristics;
+            %tmp.7 = 0;
+            %tmp.8 = agetv %tmp.6 %tmp.7;
+            %tmp.10 = getv ? :_heuristics;
+            %tmp.11 = 1;
+            %tmp.12 = agetv %tmp.10 %tmp.11;
+            %tmp.14 = getv ? :_heuristics;
+            %tmp.15 = 2;
+            %tmp.16 = agetv %tmp.14 %tmp.15;
+            %tmp.18 = getv ? :_heuristics;
+            %tmp.19 = 3;
+            %tmp.20 = agetv %tmp.18 %tmp.19;
+            %tmp.1 = newc %tmp.4 (%tmp.8, %tmp.12, %tmp.16, %tmp.20);
+            ret %tmp.1;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_78_58_78_148_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 79; ]
+        public
+        function getHeuristicsAsArray() as Array<Numeric32> {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_79_67_79_89_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 79 69 ]
+            %tmp.2 = getv ? :_heuristics;
+            ret %tmp.2;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_79_67_79_89_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 80; ]
+        public
+        function getHeuristic(heuristic as Heuristic) {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_80_61_80_107_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 80 63 ]
+            %tmp.2 = getv ? :_heuristics;
+            %tmp.4 = lgetv %heuristic;
+            %tmp.5 = as %tmp.4 Integer32;
+            %tmp.6 = agetv %tmp.2 %tmp.5;
+            ret %tmp.6;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_80_61_80_107_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 81; ]
+        public
+        function getCurrent(activity as Activity.Info) as Numeric32 {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_81_75_81_87_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 81 77 ]
+            %tmp.1 = 0;
+            ret %tmp.1;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_81_75_81_87_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 82; ]
+        public
+        function getMostRecentValue() {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_82_45_82_109_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc" 82 47 ]
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_82_54_82_106_begin:
+            %tmp.2 = getv ? :_samples;
+            %tmp.3 = getv function %tmp.2 :size;
+            %tmp.4 = invoke %tmp.2 %tmp.3();
+            %tmp.5 = 0;
+            %tmp.6 = gt %tmp.4 %tmp.5;
+            bf %tmp.6 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_82_54_82_106_false;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_82_54_82_106_true:
+            %tmp.8 = getv ? :_samples;
+            %tmp.10 = getv ? :_samples;
+            %tmp.11 = getv function %tmp.10 :size;
+            %tmp.12 = invoke %tmp.10 %tmp.11();
+            %tmp.13 = 1;
+            %tmp.14 = sub %tmp.12 %tmp.13;
+            %tmp.15 = agetv %tmp.8 %tmp.14;
+            push %tmp.15;
+            goto @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_82_54_82_106_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_82_54_82_106_false:
+            %tmp.16 = 0;
+            push %tmp.16;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_82_54_82_106_end:
+            %tmp.17 = phi [%tmp.6 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_82_54_82_106_begin] [%tmp.15 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_82_54_82_106_true] [%tmp.16 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_82_54_82_106_false] [%tmp.17 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_82_54_82_106_end];
+            ret %tmp.17;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Metric_mc_82_45_82_109_stop:
+        }
+    }
+}
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Metric.mc"; @line = 1; ]
+<init> {
+}

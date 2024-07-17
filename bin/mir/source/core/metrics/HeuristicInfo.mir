@@ -1,0 +1,167 @@
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 1; ]
+import Toybox.Application;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 2; ]
+import Toybox.Graphics;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 3; ]
+import Toybox.Lang;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 4; ]
+import Toybox.System;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 5; ]
+import Toybox.WatchUi;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 6; ]
+import Toybox.Activity;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 7; ]
+import Toybox.Math;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 9; ]
+module Jacobs {
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 9; ]
+    <init> {
+    }
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 12; ]
+    class HeuristicsInfo{
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 12; ]
+        <init> {
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 12; ]
+        static
+        <init> {
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 15; @position = 21; ]
+        public
+        const NUMBER_OF_HEURISTICS as Integer32 = 4;
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 19; @position = 19; ]
+        public
+        var _heuristics as Array<Numeric32>;
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 23; ]
+        public
+        function initialize(fluctuation as Numeric32, rateOfChange as Numeric32, range as Numeric32, userPriority as Numeric32) as Void {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_HeuristicInfo_mc_24_8_31_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc" 25 12 ]
+            %tmp.3 = getv ? :NUMBER_OF_HEURISTICS;
+            %tmp.1 = newa Array<Numeric32> %tmp.3;
+            putv self :_heuristics %tmp.1;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc" 27 12 ]
+            %tmp.4 = getv self :_heuristics;
+            %tmp.6 = lgetv %fluctuation;
+            %tmp.8 = getv ? :FLUCTUATION;
+            aputv %tmp.4 %tmp.8 %tmp.6;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc" 28 12 ]
+            %tmp.9 = getv self :_heuristics;
+            %tmp.11 = lgetv %rateOfChange;
+            %tmp.13 = getv ? :RATE_OF_CHANGE;
+            aputv %tmp.9 %tmp.13 %tmp.11;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc" 29 12 ]
+            %tmp.14 = getv self :_heuristics;
+            %tmp.16 = lgetv %range;
+            %tmp.18 = getv ? :RANGE;
+            aputv %tmp.14 %tmp.18 %tmp.16;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc" 30 12 ]
+            %tmp.19 = getv self :_heuristics;
+            %tmp.21 = lgetv %userPriority;
+            %tmp.23 = getv ? :USER_PRIORITY;
+            aputv %tmp.19 %tmp.23 %tmp.21;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_HeuristicInfo_mc_24_8_31_8_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 35; ]
+        public
+        function toArray() as Array<Numeric32> {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_HeuristicInfo_mc_35_54_35_76_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc" 35 56 ]
+            %tmp.2 = getv ? :_heuristics;
+            ret %tmp.2;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_HeuristicInfo_mc_35_54_35_76_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 37; ]
+        public
+        function getFluctation() as Numeric32 {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_HeuristicInfo_mc_37_53_37_88_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc" 37 55 ]
+            %tmp.2 = getv ? :_heuristics;
+            %tmp.4 = getv ? :FLUCTUATION;
+            %tmp.5 = agetv %tmp.2 %tmp.4;
+            ret %tmp.5;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_HeuristicInfo_mc_37_53_37_88_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 38; ]
+        public
+        function getRateOfChange() as Numeric32 {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_HeuristicInfo_mc_38_55_38_93_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc" 38 57 ]
+            %tmp.2 = getv ? :_heuristics;
+            %tmp.4 = getv ? :RATE_OF_CHANGE;
+            %tmp.5 = agetv %tmp.2 %tmp.4;
+            ret %tmp.5;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_HeuristicInfo_mc_38_55_38_93_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 39; ]
+        public
+        function getRange() as Numeric32 {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_HeuristicInfo_mc_39_48_39_77_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc" 39 50 ]
+            %tmp.2 = getv ? :_heuristics;
+            %tmp.4 = getv ? :RANGE;
+            %tmp.5 = agetv %tmp.2 %tmp.4;
+            ret %tmp.5;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_HeuristicInfo_mc_39_48_39_77_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 40; ]
+        public
+        function getUserPriority() as Numeric32 {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_HeuristicInfo_mc_40_55_40_92_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc" 40 57 ]
+            %tmp.2 = getv ? :_heuristics;
+            %tmp.4 = getv ? :USER_PRIORITY;
+            %tmp.5 = agetv %tmp.2 %tmp.4;
+            ret %tmp.5;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_HeuristicInfo_mc_40_55_40_92_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 41; ]
+        public
+        function getLinearPrioritisation() as Numeric32 {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_HeuristicInfo_mc_42_8_44_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc" 43 12 ]
+            %tmp.2 = getv ? :_heuristics;
+            %tmp.4 = getv ? :FLUCTUATION;
+            %tmp.5 = agetv %tmp.2 %tmp.4;
+            %tmp.7 = getv ? :_heuristics;
+            %tmp.9 = getv ? :RATE_OF_CHANGE;
+            %tmp.10 = agetv %tmp.7 %tmp.9;
+            %tmp.11 = add %tmp.5 %tmp.10;
+            %tmp.13 = getv ? :_heuristics;
+            %tmp.15 = getv ? :RANGE;
+            %tmp.16 = agetv %tmp.13 %tmp.15;
+            %tmp.17 = add %tmp.11 %tmp.16;
+            %tmp.19 = getv ? :_heuristics;
+            %tmp.21 = getv ? :USER_PRIORITY;
+            %tmp.22 = agetv %tmp.19 %tmp.21;
+            %tmp.23 = mul %tmp.17 %tmp.22;
+            ret %tmp.23;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_HeuristicInfo_mc_42_8_44_8_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 45; ]
+        public
+        function getHeuristic(heuristic as Heuristic or Integer32) {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_HeuristicInfo_mc_46_8_50_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc" 47 12 ]
+            %tmp.2 = getv ? :Test;
+            %tmp.3 = getv function %tmp.2 :assert;
+            %tmp.5 = lgetv %heuristic;
+            %tmp.6 = as %tmp.5 Integer32;
+            %tmp.8 = getv ? :_heuristics;
+            %tmp.9 = getv function %tmp.8 :size;
+            %tmp.10 = invoke %tmp.8 %tmp.9();
+            %tmp.11 = lt %tmp.6 %tmp.10;
+            invoke %tmp.2 %tmp.3(%tmp.11);
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc" 49 12 ]
+            %tmp.13 = getv ? :_heuristics;
+            %tmp.15 = lgetv %heuristic;
+            %tmp.16 = as %tmp.15 Integer32;
+            %tmp.17 = agetv %tmp.13 %tmp.16;
+            ret %tmp.17;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_HeuristicInfo_mc_46_8_50_8_stop:
+        }
+    }
+}
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeuristicInfo.mc"; @line = 1; ]
+<init> {
+}

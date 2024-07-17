@@ -1,0 +1,53 @@
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\TypeDefinitions.mc"; @line = 1; ]
+import Toybox.Application;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\TypeDefinitions.mc"; @line = 2; ]
+import Toybox.Graphics;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\TypeDefinitions.mc"; @line = 3; ]
+import Toybox.Lang;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\TypeDefinitions.mc"; @line = 4; ]
+import Toybox.System;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\TypeDefinitions.mc"; @line = 5; ]
+import Toybox.WatchUi;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\TypeDefinitions.mc"; @line = 6; ]
+import Toybox.Activity;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\TypeDefinitions.mc"; @line = 8; ]
+module Jacobs {
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\TypeDefinitions.mc"; @line = 8; ]
+    <init> {
+    }
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\TypeDefinitions.mc"; @line = 10; ]
+    type Numeric32 as Number or Float or Long or Double;
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\TypeDefinitions.mc"; @line = 11; ]
+    type Float32 as Float;
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\TypeDefinitions.mc"; @line = 12; ]
+    type Integer32 as Number;
+}
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\TypeDefinitions.mc"; @line = 15; ]
+module ForerunnerXT {
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\TypeDefinitions.mc"; @line = 15; ]
+    <init> {
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\TypeDefinitions.mc" 20 17 ]
+        %tmp.2 = getv ? :DISPLAY_WIDTH;
+        %tmp.4 = getv ? :SEGEMENTS_PER_ROW;
+        %tmp.5 = div %tmp.2 %tmp.4;
+        putv self :SEGMENT_WIDTH %tmp.5;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\TypeDefinitions.mc" 21 17 ]
+        %tmp.7 = getv ? :DISPLAY_HEIGHT;
+        %tmp.9 = getv ? :SEGEMENTS_PER_ROW;
+        %tmp.10 = div %tmp.7 %tmp.9;
+        putv self :SEGMENT_HEIGHT %tmp.10;
+    }
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\TypeDefinitions.mc"; @line = 17; @position = 17; ]
+    const DISPLAY_WIDTH as Lang.Number = 205;
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\TypeDefinitions.mc"; @line = 18; @position = 17; ]
+    const DISPLAY_HEIGHT as Lang.Number = 148;
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\TypeDefinitions.mc"; @line = 19; @position = 17; ]
+    const SEGEMENTS_PER_ROW as Lang.Number = 2;
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\TypeDefinitions.mc"; @line = 20; @position = 17; ]
+    const SEGMENT_WIDTH as Lang.Number;
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\TypeDefinitions.mc"; @line = 21; @position = 17; ]
+    const SEGMENT_HEIGHT as Lang.Number;
+}
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\TypeDefinitions.mc"; @line = 1; ]
+<init> {
+}

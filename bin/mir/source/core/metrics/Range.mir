@@ -1,0 +1,188 @@
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc"; @line = 1; ]
+import Toybox.Application;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc"; @line = 2; ]
+import Toybox.Graphics;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc"; @line = 3; ]
+import Toybox.Lang;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc"; @line = 4; ]
+import Toybox.System;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc"; @line = 5; ]
+import Toybox.WatchUi;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc"; @line = 6; ]
+import Toybox.Activity;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc"; @line = 8; ]
+module Jacobs {
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc"; @line = 8; ]
+    <init> {
+    }
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc"; @line = 10; ]
+    class Range{
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc"; @line = 10; ]
+        <init> {
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc"; @line = 10; ]
+        static
+        <init> {
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc"; @line = 20; @position = 20; ]
+        private
+        var _minimum as Numeric32 = 0;
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc"; @line = 21; @position = 20; ]
+        private
+        var _maximum as Numeric32 = 0;
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc"; @line = 25; ]
+        public
+        function initialize(minimum as Numeric32, maximum as Numeric32) as Void {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_26_8_38_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc" 36 12 ]
+            %tmp.1 = lgetv %self;
+            %tmp.2 = getv function %tmp.1 :setMaximum;
+            %tmp.4 = lgetv %maximum;
+            invoke %tmp.1 %tmp.2(%tmp.4);
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc" 37 12 ]
+            %tmp.5 = lgetv %self;
+            %tmp.6 = getv function %tmp.5 :setMinimum;
+            %tmp.8 = lgetv %minimum;
+            invoke %tmp.5 %tmp.6(%tmp.8);
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_26_8_38_8_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc"; @line = 42; ]
+        public
+        function setMinimum(minimum as Numeric32) as Void {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_43_8_62_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc" 54 12 ]
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_54_12_59_12_if_stmt:
+            %tmp.2 = lgetv %minimum;
+            %tmp.4 = getv ? :_maximum;
+            %tmp.5 = gt %tmp.2 %tmp.4;
+            bf %tmp.5 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_54_12_59_12_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_54_12_59_12_if_true:
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_55_12_59_12_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc" 57 16 ]
+            %tmp.7 = getv ? :_maximum;
+            putv self :_minimum %tmp.7;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc" 58 16 ]
+            %tmp.9 = lgetv %minimum;
+            putv self :_maximum %tmp.9;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_55_12_59_12_stop:
+            goto @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_54_12_59_12_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_54_12_59_12_if_end:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc" 61 12 ]
+            %tmp.11 = lgetv %minimum;
+            putv self :_minimum %tmp.11;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_43_8_62_8_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc"; @line = 64; ]
+        public
+        function setMaximum(maximum as Numeric32) as Void {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_65_8_84_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc" 75 12 ]
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_75_12_81_12_if_stmt:
+            %tmp.2 = lgetv %maximum;
+            %tmp.4 = getv ? :_minimum;
+            %tmp.5 = lt %tmp.2 %tmp.4;
+            bf %tmp.5 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_75_12_81_12_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_75_12_81_12_if_true:
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_76_12_81_12_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc" 78 16 ]
+            %tmp.7 = getv ? :_minimum;
+            putv self :_maximum %tmp.7;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc" 79 16 ]
+            %tmp.9 = lgetv %maximum;
+            putv self :_minimum %tmp.9;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc" 80 16 ]
+            ret ?;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_76_12_81_12_stop:
+            goto @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_75_12_81_12_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_75_12_81_12_if_end:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc" 83 12 ]
+            %tmp.11 = lgetv %maximum;
+            putv self :_maximum %tmp.11;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_65_8_84_8_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc"; @line = 86; ]
+        public
+        function getMinimum() as Numeric32 {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_87_8_96_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc" 95 12 ]
+            %tmp.2 = getv ? :_minimum;
+            ret %tmp.2;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_87_8_96_8_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc"; @line = 98; ]
+        public
+        function getMaximum() as Numeric32 {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_99_8_108_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc" 107 12 ]
+            %tmp.2 = getv ? :_maximum;
+            ret %tmp.2;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_99_8_108_8_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc"; @line = 110; ]
+        public
+        function isInRange(value as Numeric32) as Boolean {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_111_8_121_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc" 120 12 ]
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_120_19_120_49_begin:
+            %tmp.2 = lgetv %value;
+            %tmp.4 = getv ? :_maximum;
+            %tmp.5 = lte %tmp.2 %tmp.4;
+            %tmp.6 = dup %tmp.5;
+            bf %tmp.6 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_120_40_120_49_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_120_40_120_49_true:
+            %tmp.8 = lgetv %value;
+            %tmp.10 = getv ? :_minimum;
+            %tmp.11 = gte %tmp.8 %tmp.10;
+            %tmp.12 = and %tmp.5 %tmp.11;
+            push %tmp.12;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_120_40_120_49_end:
+            %tmp.13 = phi [%tmp.6 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_120_19_120_49_begin] [%tmp.12 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_120_40_120_49_true] [%tmp.13 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_120_40_120_49_end];
+            ret %tmp.13;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_111_8_121_8_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc"; @line = 123; ]
+        public
+        function deviation(value as Numeric32) as Numeric32 {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_124_8_137_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc" 134 12 ]
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_134_12_134_50_if_stmt:
+            %tmp.1 = lgetv %self;
+            %tmp.2 = getv function %tmp.1 :isInRange;
+            %tmp.4 = lgetv %value;
+            %tmp.5 = invoke %tmp.1 %tmp.2(%tmp.4);
+            bf %tmp.5 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_134_12_134_50_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_134_12_134_50_if_true:
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_134_38_134_50_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc" 134 40 ]
+            %tmp.6 = 0;
+            ret %tmp.6;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_134_38_134_50_stop:
+            goto @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_134_12_134_50_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_134_12_134_50_if_end:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc" 136 12 ]
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_136_19_136_68_begin:
+            %tmp.8 = lgetv %value;
+            %tmp.10 = getv ? :_maximum;
+            %tmp.11 = gt %tmp.8 %tmp.10;
+            bf %tmp.11 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_136_19_136_68_false;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_136_19_136_68_true:
+            %tmp.13 = lgetv %value;
+            %tmp.15 = getv ? :_maximum;
+            %tmp.16 = sub %tmp.13 %tmp.15;
+            push %tmp.16;
+            goto @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_136_19_136_68_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_136_19_136_68_false:
+            %tmp.18 = getv ? :_minimum;
+            %tmp.20 = lgetv %value;
+            %tmp.21 = sub %tmp.18 %tmp.20;
+            push %tmp.21;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_136_19_136_68_end:
+            %tmp.22 = phi [%tmp.11 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_136_19_136_68_begin] [%tmp.16 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_136_19_136_68_true] [%tmp.21 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_136_19_136_68_false] [%tmp.22 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_136_19_136_68_end];
+            ret %tmp.22;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Range_mc_124_8_137_8_stop:
+        }
+    }
+}
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Range.mc"; @line = 1; ]
+<init> {
+}

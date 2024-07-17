@@ -1,0 +1,76 @@
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Cadence.mc"; @line = 1; ]
+import Toybox.Application;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Cadence.mc"; @line = 2; ]
+import Toybox.Graphics;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Cadence.mc"; @line = 3; ]
+import Toybox.Lang;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Cadence.mc"; @line = 4; ]
+import Toybox.System;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Cadence.mc"; @line = 5; ]
+import Toybox.WatchUi;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Cadence.mc"; @line = 6; ]
+import Toybox.Activity;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Cadence.mc"; @line = 7; ]
+import Toybox.Math;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Cadence.mc"; @line = 9; ]
+module Jacobs {
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Cadence.mc"; @line = 9; ]
+    <init> {
+    }
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Cadence.mc"; @line = 11; ]
+    class Cadence extends Metric{
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Cadence.mc"; @line = 11; ]
+        <init> {
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Cadence.mc"; @line = 11; ]
+        static
+        <init> {
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Cadence.mc"; @line = 14; ]
+        public
+        function initialize() as Void {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Cadence_mc_15_8_17_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Cadence.mc" 16 12 ]
+            %tmp.2 = getv ? :Metric;
+            %tmp.3 = getv function %tmp.2 :initialize;
+            invoke %tmp.2 %tmp.3();
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Cadence_mc_15_8_17_8_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Cadence.mc"; @line = 21; ]
+        public
+        function getCurrent(activity as Activity.Info) as Numeric32 {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Cadence_mc_22_8_24_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Cadence.mc" 23 12 ]
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Cadence_mc_23_19_23_66_begin:
+            %tmp.1 = lgetv %activity;
+            %tmp.2 = getv %tmp.1 :currentCadence;
+            %tmp.3 = null;
+            %tmp.4 = eq %tmp.2 %tmp.3;
+            bf %tmp.4 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Cadence_mc_23_19_23_66_false;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Cadence_mc_23_19_23_66_true:
+            %tmp.5 = 0;
+            push %tmp.5;
+            goto @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Cadence_mc_23_19_23_66_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Cadence_mc_23_19_23_66_false:
+            %tmp.6 = lgetv %activity;
+            %tmp.7 = getv %tmp.6 :currentCadence;
+            push %tmp.7;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Cadence_mc_23_19_23_66_end:
+            %tmp.8 = phi [%tmp.4 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Cadence_mc_23_19_23_66_begin] [%tmp.5 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Cadence_mc_23_19_23_66_true] [%tmp.7 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Cadence_mc_23_19_23_66_false] [%tmp.8 @D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Cadence_mc_23_19_23_66_end];
+            ret %tmp.8;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Cadence_mc_22_8_24_8_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Cadence.mc"; @line = 26; ]
+        public
+        function getName() as String {
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Cadence_mc_26_44_26_64_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Cadence.mc" 26 46 ]
+            %tmp.1 = "Cadence";
+            ret %tmp.1;
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_Cadence_mc_26_44_26_64_stop:
+        }
+    }
+}
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\Cadence.mc"; @line = 1; ]
+<init> {
+}

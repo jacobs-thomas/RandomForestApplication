@@ -1,0 +1,96 @@
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc"; @line = 1; ]
+import Toybox.Application;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc"; @line = 2; ]
+import Toybox.Graphics;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc"; @line = 3; ]
+import Toybox.Lang;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc"; @line = 4; ]
+import Toybox.System;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc"; @line = 5; ]
+import Toybox.WatchUi;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc"; @line = 6; ]
+import Toybox.Activity;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc"; @line = 8; ]
+using Toybox.Application as :App;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc"; @line = 9; ]
+using Toybox.Activity as :Activity;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc"; @line = 10; ]
+using Toybox.System as :Sys;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc"; @line = 11; ]
+using Toybox.Test;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc"; @line = 14; ]
+module Jacobs {
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc"; @line = 14; ]
+    <init> {
+    }
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc"; @line = 16; ]
+    class Prioritisable{
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc"; @line = 16; ]
+        <init> {
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc" 29 20 ]
+            %tmp.2 = getv ? :_DEFAULT_PRIORITY;
+            putv self :_priority %tmp.2;
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc"; @line = 16; ]
+        static
+        <init> {
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc"; @line = 26; @position = 22; ]
+        private
+        const _DEFAULT_PRIORITY = 0;
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc"; @line = 29; @position = 20; ]
+        private
+        var _priority as Number;
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc"; @line = 32; ]
+        public
+        function initialize(priority as Number or Null) as Void {
+D_Masters_Dissertation_RandomForestApplication_source_core_priority_prioritisable_mc_33_8_36_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc" 34 12 ]
+            %tmp.2 = lgetv %priority;
+            putv self :_priority %tmp.2;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc" 35 12 ]
+D_Masters_Dissertation_RandomForestApplication_source_core_priority_prioritisable_mc_35_12_35_67_if_stmt:
+            %tmp.4 = getv ? :_priority;
+            %tmp.5 = null;
+            %tmp.6 = eq %tmp.4 %tmp.5;
+            bf %tmp.6 @D_Masters_Dissertation_RandomForestApplication_source_core_priority_prioritisable_mc_35_12_35_67_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_priority_prioritisable_mc_35_12_35_67_if_true:
+D_Masters_Dissertation_RandomForestApplication_source_core_priority_prioritisable_mc_35_34_35_67_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc" 35 36 ]
+            %tmp.8 = getv ? :_DEFAULT_PRIORITY;
+            putv self :_priority %tmp.8;
+D_Masters_Dissertation_RandomForestApplication_source_core_priority_prioritisable_mc_35_34_35_67_stop:
+            goto @D_Masters_Dissertation_RandomForestApplication_source_core_priority_prioritisable_mc_35_12_35_67_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_priority_prioritisable_mc_35_12_35_67_if_end:
+D_Masters_Dissertation_RandomForestApplication_source_core_priority_prioritisable_mc_33_8_36_8_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc"; @line = 39; ]
+        public
+        function getPriority() as Number {
+D_Masters_Dissertation_RandomForestApplication_source_core_priority_prioritisable_mc_40_8_48_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc" 47 12 ]
+            %tmp.2 = getv ? :_priority;
+            ret %tmp.2;
+D_Masters_Dissertation_RandomForestApplication_source_core_priority_prioritisable_mc_40_8_48_8_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc"; @line = 50; ]
+        public
+        function setPriority(priority as Number) as Void {
+D_Masters_Dissertation_RandomForestApplication_source_core_priority_prioritisable_mc_51_8_61_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc" 59 12 ]
+            %tmp.1 = getm $.Toybox.Test;
+            %tmp.2 = getv function %tmp.1 :assert;
+            %tmp.4 = lgetv %priority;
+            %tmp.5 = null;
+            %tmp.6 = ne %tmp.4 %tmp.5;
+            invoke %tmp.1 %tmp.2(%tmp.6);
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc" 60 12 ]
+            %tmp.8 = lgetv %priority;
+            putv self :_priority %tmp.8;
+D_Masters_Dissertation_RandomForestApplication_source_core_priority_prioritisable_mc_51_8_61_8_stop:
+        }
+    }
+}
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\priority\prioritisable.mc"; @line = 1; ]
+<init> {
+}

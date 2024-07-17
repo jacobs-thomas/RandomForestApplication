@@ -1,0 +1,124 @@
+[ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 1; ]
+import Toybox.Lang;
+[ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 2; ]
+using Toybox.WatchUi;
+[ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 3; ]
+using Toybox.WatchUi as :Ui;
+[ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 4; ]
+using Toybox.Graphics;
+[ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 5; ]
+using Toybox.Graphics as :Gfx;
+[ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 7; ]
+module Rez {
+    [ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 7; ]
+    <init> {
+    }
+    [ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 8; ]
+    module Drawables {
+        [ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 8; ]
+        <init> {
+        }
+        [ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 9; @position = 27; initialized = true; ]
+        var LauncherIcon as ResourceId;
+    }
+    [ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 12; ]
+    module Layouts {
+        [ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 12; ]
+        <init> {
+        }
+        [ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 13; ]
+        function WatchFace(dc as Graphics.Dc) as Array<WatchUi.Drawable> {
+d_Masters_Dissertation_RandomForestApplication_bin_gen_006_B1765_00_source_Rez_mcgen_13_73_19_8_start:
+[ "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen" 14 12 ]
+            [ "d_Masters_Dissertation_RandomForestApplication_bin_gen_006_B1765_00_source_Rez_mcgen_13_73_19_8_start" "d_Masters_Dissertation_RandomForestApplication_bin_gen_006_B1765_00_source_Rez_mcgen_13_73_19_8_stop" ]
+            %rez_cmp_local_custom_drawable_15981237262651476138.1 = local;
+            %tmp.4 = getv ? :Background;
+            %tmp.1 = newc %tmp.4 ();
+            lputv %rez_cmp_local_custom_drawable_15981237262651476138.1 %tmp.1;
+[ "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen" 16 12 ]
+            [ "d_Masters_Dissertation_RandomForestApplication_bin_gen_006_B1765_00_source_Rez_mcgen_13_73_19_8_start" "d_Masters_Dissertation_RandomForestApplication_bin_gen_006_B1765_00_source_Rez_mcgen_13_73_19_8_stop" ]
+            %rez_cmp_local_text_TimeLabel.2 = local;
+            %tmp.7 = getm $.Toybox.WatchUi;
+            %tmp.8 = getv function ? %tmp.7 :Text;
+            %tmp.9 = newd 6;
+            %tmp.11 = const :identifier;
+            %tmp.12 = "TimeLabel";
+            %tmp.13 = dup %tmp.9;
+            %tmp.14 = aputv %tmp.13 %tmp.11 %tmp.12;
+            %tmp.16 = const :color;
+            %tmp.17 = getm $.Toybox.Graphics;
+            %tmp.18 = getv %tmp.17 :COLOR_BLUE;
+            %tmp.19 = dup %tmp.14;
+            %tmp.20 = aputv %tmp.19 %tmp.16 %tmp.18;
+            %tmp.22 = const :locX;
+            %tmp.23 = 205;
+            %tmp.24 = 0.5;
+            %tmp.25 = mul %tmp.23 %tmp.24;
+            %tmp.26 = dup %tmp.20;
+            %tmp.27 = aputv %tmp.26 %tmp.22 %tmp.25;
+            %tmp.29 = const :locY;
+            %tmp.30 = 148;
+            %tmp.31 = lgetv %dc;
+            %tmp.32 = getv function %tmp.31 :getFontHeight;
+            %tmp.33 = getm $.Toybox.Graphics;
+            %tmp.34 = getv %tmp.33 :FONT_LARGE;
+            %tmp.35 = invoke %tmp.31 %tmp.32(%tmp.34);
+            %tmp.36 = sub %tmp.30 %tmp.35;
+            %tmp.37 = 0.5;
+            %tmp.38 = mul %tmp.36 %tmp.37;
+            %tmp.39 = dup %tmp.27;
+            %tmp.40 = aputv %tmp.39 %tmp.29 %tmp.38;
+            %tmp.42 = const :justification;
+            %tmp.43 = getm $.Toybox.Graphics;
+            %tmp.44 = getv %tmp.43 :TEXT_JUSTIFY_CENTER;
+            %tmp.45 = dup %tmp.40;
+            %tmp.46 = aputv %tmp.45 %tmp.42 %tmp.44;
+            %tmp.48 = const :font;
+            %tmp.49 = getm $.Toybox.Graphics;
+            %tmp.50 = getv %tmp.49 :FONT_LARGE;
+            %tmp.51 = dup %tmp.46;
+            %tmp.52 = aputv %tmp.51 %tmp.48 %tmp.50;
+            %tmp.5 = newc %tmp.8 (%tmp.52);
+            lputv %rez_cmp_local_text_TimeLabel.2 %tmp.5;
+[ "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen" 18 12 ]
+            %tmp.53 = newa 2 Array<WatchUi.Drawable>;
+            %tmp.55 = lgetv %rez_cmp_local_custom_drawable_15981237262651476138.1;
+            %tmp.56 = dup %tmp.53;
+            %tmp.57 = aputv %tmp.56 0 %tmp.55;
+            %tmp.59 = lgetv %rez_cmp_local_text_TimeLabel.2;
+            %tmp.60 = dup %tmp.57;
+            %tmp.61 = aputv %tmp.60 1 %tmp.59;
+            ret %tmp.61;
+d_Masters_Dissertation_RandomForestApplication_bin_gen_006_B1765_00_source_Rez_mcgen_13_73_19_8_stop:
+        }
+    }
+    [ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 22; ]
+    module Strings {
+        [ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 22; ]
+        <init> {
+        }
+        [ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 23; @position = 27; initialized = true; ]
+        var ColorLightGray as ResourceId;
+        [ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 24; @position = 27; initialized = true; ]
+        var ColorBlue as ResourceId;
+        [ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 25; @position = 27; initialized = true; ]
+        var ColorRed as ResourceId;
+        [ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 26; @position = 27; initialized = true; ]
+        var ForegroundColorTitle as ResourceId;
+        [ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 27; @position = 27; initialized = true; ]
+        var BackgroundColorTitle as ResourceId;
+        [ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 28; @position = 27; initialized = true; ]
+        var ColorDarkGray as ResourceId;
+        [ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 29; @position = 27; initialized = true; ]
+        var MilitaryFormatTitle as ResourceId;
+        [ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 30; @position = 27; initialized = true; ]
+        var ColorBlack as ResourceId;
+        [ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 31; @position = 27; initialized = true; ]
+        var ColorWhite as ResourceId;
+        [ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 32; @position = 27; initialized = true; ]
+        var AppName as ResourceId;
+    }
+}
+[ @file = "d:\Masters Dissertation\RandomForestApplication\bin\gen\006-B1765-00\source\Rez.mcgen"; @line = 1; ]
+<init> {
+}

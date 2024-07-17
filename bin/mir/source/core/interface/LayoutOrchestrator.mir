@@ -1,0 +1,77 @@
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc"; @line = 1; ]
+import Toybox.Application;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc"; @line = 2; ]
+import Toybox.Graphics;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc"; @line = 3; ]
+import Toybox.Lang;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc"; @line = 4; ]
+import Toybox.System;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc"; @line = 5; ]
+import Toybox.WatchUi;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc"; @line = 6; ]
+import Toybox.Activity;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc"; @line = 8; ]
+using Toybox.Application as :App;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc"; @line = 9; ]
+using Toybox.Activity as :Activity;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc"; @line = 10; ]
+using Toybox.System as :Sys;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc"; @line = 13; ]
+module Jacobs {
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc"; @line = 13; ]
+    <init> {
+    }
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc"; @line = 15; ]
+    class LayoutOrchestrator{
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc"; @line = 15; ]
+        <init> {
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc" 24 20 ]
+            %tmp.4 = getv ? :StrategyFactory;
+            %tmp.1 = newc %tmp.4 ();
+            putv self :_strategyFactory %tmp.1;
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc"; @line = 15; ]
+        static
+        <init> {
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc"; @line = 24; @position = 20; ]
+        private
+        var _strategyFactory as StrategyFactory;
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc"; @line = 28; ]
+        public
+        function initialize() as Void {
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc"; @line = 32; ]
+        public
+        function draw(metrics as Array<Metric>, dc as Dc) as Void {
+D_Masters_Dissertation_RandomForestApplication_source_core_interface_LayoutOrchestrator_mc_33_8_51_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc" 44 12 ]
+            %tmp.1 = lgetv %dc;
+            %tmp.2 = getv function %tmp.1 :clear;
+            invoke %tmp.1 %tmp.2();
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc" 47 12 ]
+            %tmp.3 = lgetv %dc;
+            %tmp.4 = getv function %tmp.3 :setColor;
+            %tmp.5 = getm $.Toybox.Graphics;
+            %tmp.6 = getv %tmp.5 :COLOR_TRANSPARENT;
+            %tmp.7 = getm $.Toybox.Graphics;
+            %tmp.8 = getv %tmp.7 :COLOR_BLACK;
+            invoke %tmp.3 %tmp.4(%tmp.6, %tmp.8);
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc" 50 12 ]
+            %tmp.10 = getv ? :_strategyFactory;
+            %tmp.11 = getv function %tmp.10 :getStrategy;
+            %tmp.12 = lgetv %metrics;
+            %tmp.13 = getv function %tmp.12 :size;
+            %tmp.14 = invoke %tmp.12 %tmp.13();
+            %tmp.15 = invoke %tmp.10 %tmp.11(%tmp.14);
+            %tmp.16 = getv function %tmp.15 :draw;
+            %tmp.18 = lgetv %metrics;
+            %tmp.20 = lgetv %dc;
+            invoke %tmp.15 %tmp.16(%tmp.18, %tmp.20);
+D_Masters_Dissertation_RandomForestApplication_source_core_interface_LayoutOrchestrator_mc_33_8_51_8_stop:
+        }
+    }
+}
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc"; @line = 1; ]
+<init> {
+}

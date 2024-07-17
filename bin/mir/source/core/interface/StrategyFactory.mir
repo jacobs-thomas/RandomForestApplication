@@ -1,0 +1,86 @@
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\StrategyFactory.mc"; @line = 1; ]
+import Toybox.Application;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\StrategyFactory.mc"; @line = 2; ]
+import Toybox.Graphics;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\StrategyFactory.mc"; @line = 3; ]
+import Toybox.Lang;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\StrategyFactory.mc"; @line = 4; ]
+import Toybox.System;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\StrategyFactory.mc"; @line = 5; ]
+import Toybox.WatchUi;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\StrategyFactory.mc"; @line = 6; ]
+import Toybox.Activity;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\StrategyFactory.mc"; @line = 8; ]
+using Toybox.Application as :App;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\StrategyFactory.mc"; @line = 9; ]
+using Toybox.Activity as :Activity;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\StrategyFactory.mc"; @line = 10; ]
+using Toybox.System as :Sys;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\StrategyFactory.mc"; @line = 12; ]
+module Jacobs {
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\StrategyFactory.mc"; @line = 12; ]
+    <init> {
+    }
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\StrategyFactory.mc"; @line = 14; ]
+    class StrategyFactory{
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\StrategyFactory.mc"; @line = 14; ]
+        <init> {
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\StrategyFactory.mc"; @line = 14; ]
+        static
+        <init> {
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\StrategyFactory.mc"; @line = 17; @position = 20; ]
+        private
+        var _strategies as Array<Strategy>;
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\StrategyFactory.mc"; @line = 21; ]
+        public
+        function initialize() as Void {
+D_Masters_Dissertation_RandomForestApplication_source_core_interface_StrategyFactory_mc_22_8_24_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\interface\StrategyFactory.mc" 23 12 ]
+            %tmp.1 = newa 2;
+            %tmp.5 = getv ? :DefaultStrategy;
+            %tmp.2 = newc %tmp.5 ();
+            %tmp.6 = dup %tmp.1;
+            %tmp.7 = aputv %tmp.6 0 %tmp.2;
+            %tmp.11 = getv ? :ColumnsStrategy;
+            %tmp.8 = newc %tmp.11 ();
+            %tmp.12 = dup %tmp.7;
+            %tmp.13 = aputv %tmp.12 1 %tmp.8;
+            putv self :_strategies %tmp.13;
+D_Masters_Dissertation_RandomForestApplication_source_core_interface_StrategyFactory_mc_22_8_24_8_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\StrategyFactory.mc"; @line = 28; ]
+        public
+        function getStrategy(metricsSize as Integer32) as Strategy {
+D_Masters_Dissertation_RandomForestApplication_source_core_interface_StrategyFactory_mc_29_8_36_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\interface\StrategyFactory.mc" 30 12 ]
+D_Masters_Dissertation_RandomForestApplication_source_core_interface_StrategyFactory_mc_30_12_33_12_if_stmt:
+            %tmp.2 = lgetv %metricsSize;
+            %tmp.4 = getv ? :_strategies;
+            %tmp.5 = getv function %tmp.4 :size;
+            %tmp.6 = invoke %tmp.4 %tmp.5();
+            %tmp.7 = gt %tmp.2 %tmp.6;
+            bf %tmp.7 @D_Masters_Dissertation_RandomForestApplication_source_core_interface_StrategyFactory_mc_30_12_33_12_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_interface_StrategyFactory_mc_30_12_33_12_if_true:
+D_Masters_Dissertation_RandomForestApplication_source_core_interface_StrategyFactory_mc_31_12_33_12_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\interface\StrategyFactory.mc" 32 16 ]
+            %tmp.9 = getv ? :_strategies;
+            %tmp.10 = 1;
+            %tmp.11 = agetv %tmp.9 %tmp.10;
+            ret %tmp.11;
+D_Masters_Dissertation_RandomForestApplication_source_core_interface_StrategyFactory_mc_31_12_33_12_stop:
+            goto @D_Masters_Dissertation_RandomForestApplication_source_core_interface_StrategyFactory_mc_30_12_33_12_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_interface_StrategyFactory_mc_30_12_33_12_if_end:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\interface\StrategyFactory.mc" 35 12 ]
+            %tmp.13 = getv ? :_strategies;
+            %tmp.14 = 0;
+            %tmp.15 = agetv %tmp.13 %tmp.14;
+            ret %tmp.15;
+D_Masters_Dissertation_RandomForestApplication_source_core_interface_StrategyFactory_mc_29_8_36_8_stop:
+        }
+    }
+}
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\StrategyFactory.mc"; @line = 1; ]
+<init> {
+}
