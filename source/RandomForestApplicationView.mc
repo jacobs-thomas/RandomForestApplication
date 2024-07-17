@@ -45,6 +45,7 @@ class RandomForestApplicationView extends WatchUi.WatchFace
         {
             var item = results.dequeue();
             if(previousPriority - item.priority > _TOLERANCE) { continue; }
+            previousPriority = item.priority;
             metrics.add(item.metric);
         }
 
