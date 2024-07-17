@@ -5,7 +5,8 @@ import Toybox.WatchUi;
 class RandomForestApplicationApp extends Application.AppBase
 {
     // Cosntructor:
-    function initialize() {
+    function initialize() 
+    {
         AppBase.initialize();
     }
 
