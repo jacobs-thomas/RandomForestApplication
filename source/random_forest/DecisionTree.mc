@@ -23,14 +23,15 @@ module Jacobs
         private const ROOT_NODE as Integer32 = 0;
         private const NODES_PER_BRANCH as Integer32 = 2;
         private const LEFT as Integer32 = 1;
-        private const RIGHT as Integer32 = 2;
         private const POSITIVE as Integer32 = 1;
+        private const RATE as Float32 = 0.01;
 
 
         // Instance Attributes:
         private var _metrics as Array<Metric> = new Array<Metric>[0];
         private var _trees as Array<Tree> = new Array<Tree>[0];
         private var _previousResponse = 0;
+
 
 
         // Constructor:
@@ -42,6 +43,21 @@ module Jacobs
 
             // Initialise the metrics array with instances of different metrics.
             _metrics = [new Cadence(), new Pace(), new HeartRate()];
+
+            // Cadence:
+            _metrics[0].range.setMinimum(170);
+            _metrics[0].range.setMaximum(180);
+            _metrics[0].userPriority = 0.2;
+
+            // Pace:
+            _metrics[1].range.setMinimum(5);
+            _metrics[1].range.setMaximum(5.3);
+            _metrics[1].userPriority = 0.2;
+
+            // Heart Rate:
+            _metrics[2].range.setMinimum(160);
+            _metrics[2].range.setMaximum(170);
+            _metrics[2].userPriority = 0.4;
             
             // Initialize the decision trees with random sizes between 4 and 13.
             for(var i = 0; i < NUMBER_OF_TREES; i++)
@@ -52,7 +68,7 @@ module Jacobs
 
 
         // Methods:
-        public function evaluate() as MetricQueue
+        public function evaluate(activity as Activity.Info) as MetricQueue
         {
             /**
             * Evaluates the metrics using the random forest.
@@ -65,7 +81,7 @@ module Jacobs
 
 
             // Update each metric to collect new samples.
-            for(var i = 0; i < _metrics.size(); i++) { _metrics[i].addSample(Activity.getActivityInfo()); }
+            for(var i = 0; i < _metrics.size(); i++) { _metrics[i].addSample(activity); }
 
             // Initialise variables to cache state during evaluation.
             var currentNodeIndex = ROOT_NODE;
@@ -81,9 +97,6 @@ module Jacobs
                 tree = _trees[i];
                 currentNodeIndex = 0;
                 var exit = false;
-
-                if(tree.previousResponse != _previousResponse) { tree.weight -= tree.weight * 0.01; }
-                else { tree.weight += tree.weight * 0.1; }
 
                 // Traverse nodes in the current tree.
                 while(currentNodeIndex < tree.nodes.size() && exit == false)
@@ -111,15 +124,27 @@ module Jacobs
 
             // Finally, determine the metric with the most positive recommendations.
             var results = new MetricQueue();
-            var resultValue = 0;
+            var priorityMetric = 0;
 
             for(var i = 0; i < metricResults.size(); i++)
             {
+                if(metricResults[i] > metricResults[priorityMetric]) { priorityMetric = i;}
                 results.enqueue(_metrics[i], metricResults[i]);
             }
 
+            backwardPropagation(priorityMetric);
 
             return results;
+        }
+
+        private function backwardPropagation(priority as Integer32)
+        {
+            for(var i = 0; i < _trees.size(); i++)
+            {
+                if(_trees[i].previousResponse == priority) { continue; }
+
+                _trees[i].weight -= _trees[i].weight  * RATE;
+            }
         }
     }
 }

@@ -72,44 +72,47 @@ D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationVie
         %results.1 = local;
         %tmp.7 = getv ? :_randomForest;
         %tmp.8 = getv function %tmp.7 :evaluate;
-        %tmp.9 = invoke %tmp.7 %tmp.8();
-        lputv %results.1 %tmp.9;
+        %tmp.10 = getv ? :Activity;
+        %tmp.11 = getv function %tmp.10 :getActivityInfo;
+        %tmp.12 = invoke %tmp.10 %tmp.11();
+        %tmp.13 = invoke %tmp.7 %tmp.8(%tmp.12);
+        lputv %results.1 %tmp.13;
 [ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 40 8 ]
         [ "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_53_4_start" "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_53_4_stop" ]
         %metrics.2 = local;
-        %tmp.10 = newa 0;
-        lputv %metrics.2 %tmp.10;
+        %tmp.14 = newa 0;
+        lputv %metrics.2 %tmp.14;
 [ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 41 8 ]
         [ "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_53_4_start" "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_53_4_stop" ]
         %previousPriority.3 = local;
-        %tmp.11 = 0;
-        lputv %previousPriority.3 %tmp.11;
+        %tmp.15 = 0;
+        lputv %previousPriority.3 %tmp.15;
 [ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 44 8 ]
         while @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_44_8_50_8_while_test @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_44_8_50_8_while_end;
 D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_44_8_50_8_while_test:
-        %tmp.12 = lgetv %results.1;
-        %tmp.13 = getv function %tmp.12 :isEmpty;
-        %tmp.14 = invoke %tmp.12 %tmp.13();
-        %tmp.15 = not %tmp.14;
-        bf %tmp.15 @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_44_8_50_8_while_end;
+        %tmp.16 = lgetv %results.1;
+        %tmp.17 = getv function %tmp.16 :isEmpty;
+        %tmp.18 = invoke %tmp.16 %tmp.17();
+        %tmp.19 = not %tmp.18;
+        bf %tmp.19 @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_44_8_50_8_while_end;
 D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_44_8_50_8_while_begin:
 D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_45_8_50_8_start:
 [ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 46 12 ]
         [ "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_45_8_50_8_start" "D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_45_8_50_8_stop" ]
         %item.4 = local;
-        %tmp.16 = lgetv %results.1;
-        %tmp.17 = getv function %tmp.16 :dequeue;
-        %tmp.18 = invoke %tmp.16 %tmp.17();
-        lputv %item.4 %tmp.18;
+        %tmp.20 = lgetv %results.1;
+        %tmp.21 = getv function %tmp.20 :dequeue;
+        %tmp.22 = invoke %tmp.20 %tmp.21();
+        lputv %item.4 %tmp.22;
 [ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 47 12 ]
 D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_12_47_74_if_stmt:
-        %tmp.20 = lgetv %previousPriority.3;
-        %tmp.21 = lgetv %item.4;
-        %tmp.22 = getv %tmp.21 :priority;
-        %tmp.23 = sub %tmp.20 %tmp.22;
-        %tmp.25 = getv ? :_TOLERANCE;
-        %tmp.26 = gt %tmp.23 %tmp.25;
-        bf %tmp.26 @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_12_47_74_if_end;
+        %tmp.24 = lgetv %previousPriority.3;
+        %tmp.25 = lgetv %item.4;
+        %tmp.26 = getv %tmp.25 :priority;
+        %tmp.27 = sub %tmp.24 %tmp.26;
+        %tmp.29 = getv ? :_TOLERANCE;
+        %tmp.30 = gt %tmp.27 %tmp.29;
+        bf %tmp.30 @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_12_47_74_if_end;
 D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_12_47_74_if_true:
 D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_62_47_74_start:
 [ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 47 64 ]
@@ -118,24 +121,24 @@ D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationVie
         goto @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_12_47_74_if_end;
 D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_47_12_47_74_if_end:
 [ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 48 12 ]
-        %tmp.27 = lgetv %item.4;
-        %tmp.28 = getv %tmp.27 :priority;
-        lputv %previousPriority.3 %tmp.28;
-[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 49 12 ]
-        %tmp.29 = lgetv %metrics.2;
-        %tmp.30 = getv function %tmp.29 :add;
         %tmp.31 = lgetv %item.4;
-        %tmp.32 = getv %tmp.31 :metric;
-        invoke %tmp.29 %tmp.30(%tmp.32);
+        %tmp.32 = getv %tmp.31 :priority;
+        lputv %previousPriority.3 %tmp.32;
+[ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 49 12 ]
+        %tmp.33 = lgetv %metrics.2;
+        %tmp.34 = getv function %tmp.33 :add;
+        %tmp.35 = lgetv %item.4;
+        %tmp.36 = getv %tmp.35 :metric;
+        invoke %tmp.33 %tmp.34(%tmp.36);
 D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_45_8_50_8_stop:
         goto @D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_44_8_50_8_while_test;
 D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_44_8_50_8_while_end:
 [ "D:\Masters Dissertation\RandomForestApplication\source\RandomForestApplicationView.mc" 52 8 ]
-        %tmp.34 = getv ? :layoutOrchestrator;
-        %tmp.35 = getv function %tmp.34 :draw;
-        %tmp.37 = lgetv %metrics.2;
-        %tmp.39 = lgetv %dc;
-        invoke %tmp.34 %tmp.35(%tmp.37, %tmp.39);
+        %tmp.38 = getv ? :layoutOrchestrator;
+        %tmp.39 = getv function %tmp.38 :draw;
+        %tmp.41 = lgetv %metrics.2;
+        %tmp.43 = lgetv %dc;
+        invoke %tmp.38 %tmp.39(%tmp.41, %tmp.43);
 D_Masters_Dissertation_RandomForestApplication_source_RandomForestApplicationView_mc_34_4_53_4_stop:
     }
 }

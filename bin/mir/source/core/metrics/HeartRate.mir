@@ -63,11 +63,11 @@ D_Masters_Dissertation_RandomForestApplication_source_core_metrics_HeartRate_mc_
         [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeartRate.mc"; @line = 26; ]
         public
         function getName() as String {
-D_Masters_Dissertation_RandomForestApplication_source_core_metrics_HeartRate_mc_26_44_26_66_start:
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_HeartRate_mc_26_44_26_67_start:
 [ "D:\Masters Dissertation\RandomForestApplication\source\core\metrics\HeartRate.mc" 26 46 ]
-            %tmp.1 = "HeartRate";
+            %tmp.1 = "Heart Rate";
             ret %tmp.1;
-D_Masters_Dissertation_RandomForestApplication_source_core_metrics_HeartRate_mc_26_44_26_66_stop:
+D_Masters_Dissertation_RandomForestApplication_source_core_metrics_HeartRate_mc_26_44_26_67_stop:
         }
     }
 }

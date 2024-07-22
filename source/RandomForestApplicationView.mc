@@ -36,7 +36,7 @@ class RandomForestApplicationView extends WatchUi.WatchFace
         View.onUpdate(dc);
 
         // Draw filtered metrics.
-        var results = _randomForest.evaluate();
+        var results = _randomForest.evaluate(Activity.getActivityInfo());
         var metrics = [];
         var previousPriority = 0;
         

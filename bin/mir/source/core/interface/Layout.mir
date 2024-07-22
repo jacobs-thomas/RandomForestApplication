@@ -94,93 +94,125 @@ D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_4
         [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\interface\Layout.mc"; @line = 51; ]
         public
         function draw(metrics as Array<Metric>, dc as Dc) {
-D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_52_8_59_8_start:
+D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_52_8_63_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\interface\Layout.mc" 53 12 ]
+            [ "D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_52_8_63_8_start" "D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_52_8_63_8_stop" ]
+            %totalMetrics.1 = local;
+            %tmp.1 = lgetv %metrics;
+            %tmp.2 = getv function %tmp.1 :size;
+            %tmp.3 = invoke %tmp.1 %tmp.2();
+            lputv %totalMetrics.1 %tmp.3;
 [ "D:\Masters Dissertation\RandomForestApplication\source\core\interface\Layout.mc" 54 12 ]
-            for @D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_54_12_58_12_for_test @D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_54_12_58_12_for_incr @D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_54_12_58_12_for_end;
-D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_54_12_58_12_for_init:
-            [ "D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_54_12_58_12_for_begin" "D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_54_12_58_12_for_end" ]
-            %i.1 = local;
-            %tmp.1 = 0;
-            lputv %i.1 %tmp.1;
-D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_54_12_58_12_for_test:
-            %tmp.3 = lgetv %i.1;
-            %tmp.4 = lgetv %metrics;
-            %tmp.5 = getv function %tmp.4 :size;
-            %tmp.6 = invoke %tmp.4 %tmp.5();
-            %tmp.7 = lt %tmp.3 %tmp.6;
-            bf %tmp.7 @D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_54_12_58_12_for_end;
-D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_54_12_58_12_for_begin:
-D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_55_12_58_12_start:
-[ "D:\Masters Dissertation\RandomForestApplication\source\core\interface\Layout.mc" 56 16 ]
-            %tmp.8 = lgetv %dc;
-            %tmp.9 = getv function %tmp.8 :drawText;
-            %tmp.11 = getv ? :_width;
-            %tmp.12 = lgetv %metrics;
-            %tmp.13 = getv function %tmp.12 :size;
-            %tmp.14 = invoke %tmp.12 %tmp.13();
-            %tmp.15 = div %tmp.11 %tmp.14;
-            %tmp.17 = lgetv %i.1;
-            %tmp.18 = mul %tmp.15 %tmp.17;
-            %tmp.19 = lgetv %dc;
-            %tmp.20 = getv function %tmp.19 :getHeight;
-            %tmp.21 = invoke %tmp.19 %tmp.20();
-            %tmp.22 = 2;
-            %tmp.23 = div %tmp.21 %tmp.22;
-            %tmp.25 = getv ? :_VERTICAL_SEPERATION;
-            %tmp.26 = 2;
-            %tmp.27 = div %tmp.25 %tmp.26;
-            %tmp.28 = sub %tmp.23 %tmp.27;
-            %tmp.29 = getm $.Toybox.Graphics;
-            %tmp.30 = getv %tmp.29 :FONT_LARGE;
-            %tmp.32 = lgetv %metrics;
-            %tmp.34 = lgetv %i.1;
-            %tmp.35 = agetv %tmp.32 %tmp.34;
-            %tmp.36 = getv function %tmp.35 :getName;
-            %tmp.37 = invoke %tmp.35 %tmp.36();
-            %tmp.38 = getm $.Toybox.Graphics;
-            %tmp.39 = getv %tmp.38 :TEXT_JUSTIFY_CENTER;
-            invoke %tmp.8 %tmp.9(%tmp.18, %tmp.28, %tmp.30, %tmp.37, %tmp.39);
-[ "D:\Masters Dissertation\RandomForestApplication\source\core\interface\Layout.mc" 57 16 ]
-            %tmp.40 = lgetv %dc;
-            %tmp.41 = getv function %tmp.40 :drawText;
-            %tmp.43 = getv ? :_width;
-            %tmp.44 = lgetv %metrics;
-            %tmp.45 = getv function %tmp.44 :size;
-            %tmp.46 = invoke %tmp.44 %tmp.45();
-            %tmp.47 = div %tmp.43 %tmp.46;
-            %tmp.49 = lgetv %i.1;
-            %tmp.50 = mul %tmp.47 %tmp.49;
-            %tmp.51 = lgetv %dc;
-            %tmp.52 = getv function %tmp.51 :getHeight;
-            %tmp.53 = invoke %tmp.51 %tmp.52();
-            %tmp.54 = 2;
-            %tmp.55 = div %tmp.53 %tmp.54;
-            %tmp.57 = getv ? :_VERTICAL_SEPERATION;
-            %tmp.58 = 2;
-            %tmp.59 = div %tmp.57 %tmp.58;
-            %tmp.60 = add %tmp.55 %tmp.59;
-            %tmp.61 = getm $.Toybox.Graphics;
-            %tmp.62 = getv %tmp.61 :FONT_LARGE;
-            %tmp.64 = lgetv %metrics;
-            %tmp.66 = lgetv %i.1;
-            %tmp.67 = agetv %tmp.64 %tmp.66;
-            %tmp.68 = getv function %tmp.67 :getMostRecentValue;
-            %tmp.69 = invoke %tmp.67 %tmp.68();
-            %tmp.70 = getv function %tmp.69 :format;
-            %tmp.71 = "%i";
-            %tmp.72 = invoke %tmp.69 %tmp.70(%tmp.71);
-            %tmp.73 = getm $.Toybox.Graphics;
-            %tmp.74 = getv %tmp.73 :TEXT_JUSTIFY_CENTER;
-            invoke %tmp.40 %tmp.41(%tmp.50, %tmp.60, %tmp.62, %tmp.72, %tmp.74);
-D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_55_12_58_12_stop:
-D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_54_12_58_12_for_incr:
-[ "D:\Masters Dissertation\RandomForestApplication\source\core\interface\Layout.mc" 54 ]
-            %tmp.77 = lgetv %i.1;
-            %tmp.78 = add %tmp.77 1;
-            lputv %i.1 %tmp.78;
-            goto @D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_54_12_58_12_for_test;
-D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_54_12_58_12_for_end:
-D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_52_8_59_8_stop:
+            [ "D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_52_8_63_8_start" "D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_52_8_63_8_stop" ]
+            %spacing.2 = local;
+            %tmp.5 = getv ? :_width;
+            %tmp.7 = lgetv %totalMetrics.1;
+            %tmp.8 = div %tmp.5 %tmp.7;
+            lputv %spacing.2 %tmp.8;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\interface\Layout.mc" 55 12 ]
+            [ "D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_52_8_63_8_start" "D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_52_8_63_8_stop" ]
+            %centerX.3 = local;
+            %tmp.10 = getv ? :_width;
+            %tmp.11 = 2;
+            %tmp.12 = div %tmp.10 %tmp.11;
+            lputv %centerX.3 %tmp.12;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\interface\Layout.mc" 57 12 ]
+            for @D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_57_12_62_12_for_test @D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_57_12_62_12_for_incr @D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_57_12_62_12_for_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_57_12_62_12_for_init:
+            [ "D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_57_12_62_12_for_begin" "D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_57_12_62_12_for_end" ]
+            %i.4 = local;
+            %tmp.13 = 0;
+            lputv %i.4 %tmp.13;
+D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_57_12_62_12_for_test:
+            %tmp.15 = lgetv %i.4;
+            %tmp.16 = lgetv %metrics;
+            %tmp.17 = getv function %tmp.16 :size;
+            %tmp.18 = invoke %tmp.16 %tmp.17();
+            %tmp.19 = lt %tmp.15 %tmp.18;
+            bf %tmp.19 @D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_57_12_62_12_for_end;
+D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_57_12_62_12_for_begin:
+D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_58_12_62_12_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\interface\Layout.mc" 59 16 ]
+            [ "D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_58_12_62_12_start" "D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_58_12_62_12_stop" ]
+            %textX.5 = local;
+            %tmp.21 = lgetv %centerX.3;
+            %tmp.23 = lgetv %totalMetrics.1;
+            %tmp.25 = lgetv %spacing.2;
+            %tmp.26 = mul %tmp.23 %tmp.25;
+            %tmp.27 = 2;
+            %tmp.28 = div %tmp.26 %tmp.27;
+            %tmp.29 = sub %tmp.21 %tmp.28;
+            %tmp.31 = lgetv %i.4;
+            %tmp.33 = lgetv %spacing.2;
+            %tmp.34 = mul %tmp.31 %tmp.33;
+            %tmp.35 = add %tmp.29 %tmp.34;
+            %tmp.37 = lgetv %spacing.2;
+            %tmp.38 = 2;
+            %tmp.39 = div %tmp.37 %tmp.38;
+            %tmp.40 = add %tmp.35 %tmp.39;
+            lputv %textX.5 %tmp.40;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\interface\Layout.mc" 60 16 ]
+            %tmp.41 = lgetv %dc;
+            %tmp.42 = getv function %tmp.41 :drawText;
+            %tmp.44 = lgetv %textX.5;
+            %tmp.45 = lgetv %dc;
+            %tmp.46 = getv function %tmp.45 :getHeight;
+            %tmp.47 = invoke %tmp.45 %tmp.46();
+            %tmp.48 = 2;
+            %tmp.49 = div %tmp.47 %tmp.48;
+            %tmp.51 = getv ? :_VERTICAL_SEPERATION;
+            %tmp.52 = 2;
+            %tmp.53 = div %tmp.51 %tmp.52;
+            %tmp.54 = sub %tmp.49 %tmp.53;
+            %tmp.55 = 30;
+            %tmp.56 = sub %tmp.54 %tmp.55;
+            %tmp.57 = getm $.Toybox.Graphics;
+            %tmp.58 = getv %tmp.57 :FONT_LARGE;
+            %tmp.60 = lgetv %metrics;
+            %tmp.62 = lgetv %i.4;
+            %tmp.63 = agetv %tmp.60 %tmp.62;
+            %tmp.64 = getv function %tmp.63 :getName;
+            %tmp.65 = invoke %tmp.63 %tmp.64();
+            %tmp.66 = getm $.Toybox.Graphics;
+            %tmp.67 = getv %tmp.66 :TEXT_JUSTIFY_CENTER;
+            invoke %tmp.41 %tmp.42(%tmp.44, %tmp.56, %tmp.58, %tmp.65, %tmp.67);
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\interface\Layout.mc" 61 16 ]
+            %tmp.68 = lgetv %dc;
+            %tmp.69 = getv function %tmp.68 :drawText;
+            %tmp.71 = lgetv %textX.5;
+            %tmp.72 = lgetv %dc;
+            %tmp.73 = getv function %tmp.72 :getHeight;
+            %tmp.74 = invoke %tmp.72 %tmp.73();
+            %tmp.75 = 2;
+            %tmp.76 = div %tmp.74 %tmp.75;
+            %tmp.78 = getv ? :_VERTICAL_SEPERATION;
+            %tmp.79 = 2;
+            %tmp.80 = div %tmp.78 %tmp.79;
+            %tmp.81 = add %tmp.76 %tmp.80;
+            %tmp.82 = 30;
+            %tmp.83 = sub %tmp.81 %tmp.82;
+            %tmp.84 = getm $.Toybox.Graphics;
+            %tmp.85 = getv %tmp.84 :FONT_SYSTEM_NUMBER_THAI_HOT;
+            %tmp.87 = lgetv %metrics;
+            %tmp.89 = lgetv %i.4;
+            %tmp.90 = agetv %tmp.87 %tmp.89;
+            %tmp.91 = getv function %tmp.90 :getMostRecentValue;
+            %tmp.92 = invoke %tmp.90 %tmp.91();
+            %tmp.93 = getv function %tmp.92 :format;
+            %tmp.94 = "%i";
+            %tmp.95 = invoke %tmp.92 %tmp.93(%tmp.94);
+            %tmp.96 = getm $.Toybox.Graphics;
+            %tmp.97 = getv %tmp.96 :TEXT_JUSTIFY_CENTER;
+            invoke %tmp.68 %tmp.69(%tmp.71, %tmp.83, %tmp.85, %tmp.95, %tmp.97);
+D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_58_12_62_12_stop:
+D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_57_12_62_12_for_incr:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\interface\Layout.mc" 57 ]
+            %tmp.100 = lgetv %i.4;
+            %tmp.101 = add %tmp.100 1;
+            lputv %i.4 %tmp.101;
+            goto @D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_57_12_62_12_for_test;
+D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_57_12_62_12_for_end:
+D_Masters_Dissertation_RandomForestApplication_source_core_interface_Layout_mc_52_8_63_8_stop:
         }
     }
 }

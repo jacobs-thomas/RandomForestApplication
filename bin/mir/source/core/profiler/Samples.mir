@@ -1,0 +1,179 @@
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc"; @line = 1; ]
+import Toybox.Application;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc"; @line = 2; ]
+import Toybox.Graphics;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc"; @line = 3; ]
+import Toybox.Lang;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc"; @line = 4; ]
+import Toybox.System;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc"; @line = 5; ]
+import Toybox.WatchUi;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc"; @line = 6; ]
+import Toybox.Activity;
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc"; @line = 8; ]
+module Jacobs {
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc"; @line = 8; ]
+    <init> {
+    }
+    [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc"; @line = 10; ]
+    class Metrics{
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc"; @line = 10; ]
+        <init> {
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc" 13 22 ]
+            %tmp.1 = newa 11;
+            %tmp.2 = 162;
+            %tmp.3 = dup %tmp.1;
+            %tmp.4 = aputv %tmp.3 0 %tmp.2;
+            %tmp.5 = 178;
+            %tmp.6 = dup %tmp.4;
+            %tmp.7 = aputv %tmp.6 1 %tmp.5;
+            %tmp.8 = 160;
+            %tmp.9 = dup %tmp.7;
+            %tmp.10 = aputv %tmp.9 2 %tmp.8;
+            %tmp.11 = 154;
+            %tmp.12 = dup %tmp.10;
+            %tmp.13 = aputv %tmp.12 3 %tmp.11;
+            %tmp.14 = 180;
+            %tmp.15 = dup %tmp.13;
+            %tmp.16 = aputv %tmp.15 4 %tmp.14;
+            %tmp.17 = 180;
+            %tmp.18 = dup %tmp.16;
+            %tmp.19 = aputv %tmp.18 5 %tmp.17;
+            %tmp.20 = 179;
+            %tmp.21 = dup %tmp.19;
+            %tmp.22 = aputv %tmp.21 6 %tmp.20;
+            %tmp.23 = 179;
+            %tmp.24 = dup %tmp.22;
+            %tmp.25 = aputv %tmp.24 7 %tmp.23;
+            %tmp.26 = 180;
+            %tmp.27 = dup %tmp.25;
+            %tmp.28 = aputv %tmp.27 8 %tmp.26;
+            %tmp.29 = 181;
+            %tmp.30 = dup %tmp.28;
+            %tmp.31 = aputv %tmp.30 9 %tmp.29;
+            %tmp.32 = 180;
+            %tmp.33 = dup %tmp.31;
+            %tmp.34 = aputv %tmp.33 10 %tmp.32;
+            putv self :_cadenceSamples %tmp.34;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc" 14 22 ]
+            %tmp.35 = newa 10;
+            %tmp.36 = 5.0;
+            %tmp.37 = dup %tmp.35;
+            %tmp.38 = aputv %tmp.37 0 %tmp.36;
+            %tmp.39 = 5.0;
+            %tmp.40 = dup %tmp.38;
+            %tmp.41 = aputv %tmp.40 1 %tmp.39;
+            %tmp.42 = 5.0;
+            %tmp.43 = dup %tmp.41;
+            %tmp.44 = aputv %tmp.43 2 %tmp.42;
+            %tmp.45 = 5.0;
+            %tmp.46 = dup %tmp.44;
+            %tmp.47 = aputv %tmp.46 3 %tmp.45;
+            %tmp.48 = 5.0;
+            %tmp.49 = dup %tmp.47;
+            %tmp.50 = aputv %tmp.49 4 %tmp.48;
+            %tmp.51 = 5.0;
+            %tmp.52 = dup %tmp.50;
+            %tmp.53 = aputv %tmp.52 5 %tmp.51;
+            %tmp.54 = 5.0;
+            %tmp.55 = dup %tmp.53;
+            %tmp.56 = aputv %tmp.55 6 %tmp.54;
+            %tmp.57 = 5.0;
+            %tmp.58 = dup %tmp.56;
+            %tmp.59 = aputv %tmp.58 7 %tmp.57;
+            %tmp.60 = 5.0;
+            %tmp.61 = dup %tmp.59;
+            %tmp.62 = aputv %tmp.61 8 %tmp.60;
+            %tmp.63 = 5.0;
+            %tmp.64 = dup %tmp.62;
+            %tmp.65 = aputv %tmp.64 9 %tmp.63;
+            putv self :_paceSamples %tmp.65;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc" 15 22 ]
+            %tmp.66 = newa 11;
+            %tmp.67 = 160;
+            %tmp.68 = dup %tmp.66;
+            %tmp.69 = aputv %tmp.68 0 %tmp.67;
+            %tmp.70 = 160;
+            %tmp.71 = dup %tmp.69;
+            %tmp.72 = aputv %tmp.71 1 %tmp.70;
+            %tmp.73 = 162;
+            %tmp.74 = dup %tmp.72;
+            %tmp.75 = aputv %tmp.74 2 %tmp.73;
+            %tmp.76 = 160;
+            %tmp.77 = dup %tmp.75;
+            %tmp.78 = aputv %tmp.77 3 %tmp.76;
+            %tmp.79 = 168;
+            %tmp.80 = dup %tmp.78;
+            %tmp.81 = aputv %tmp.80 4 %tmp.79;
+            %tmp.82 = 174;
+            %tmp.83 = dup %tmp.81;
+            %tmp.84 = aputv %tmp.83 5 %tmp.82;
+            %tmp.85 = 176;
+            %tmp.86 = dup %tmp.84;
+            %tmp.87 = aputv %tmp.86 6 %tmp.85;
+            %tmp.88 = 172;
+            %tmp.89 = dup %tmp.87;
+            %tmp.90 = aputv %tmp.89 7 %tmp.88;
+            %tmp.91 = 168;
+            %tmp.92 = dup %tmp.90;
+            %tmp.93 = aputv %tmp.92 8 %tmp.91;
+            %tmp.94 = 166;
+            %tmp.95 = dup %tmp.93;
+            %tmp.96 = aputv %tmp.95 9 %tmp.94;
+            %tmp.97 = 166;
+            %tmp.98 = dup %tmp.96;
+            %tmp.99 = aputv %tmp.98 10 %tmp.97;
+            putv self :_heartRateSamples %tmp.99;
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc"; @line = 10; ]
+        static
+        <init> {
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc"; @line = 13; @position = 22; ]
+        private
+        const _cadenceSamples;
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc"; @line = 14; @position = 22; ]
+        private
+        const _paceSamples;
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc"; @line = 15; @position = 22; ]
+        private
+        const _heartRateSamples;
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc"; @line = 19; ]
+        public
+        function getInfo(step as Integer32) as Activity.Info {
+D_Masters_Dissertation_RandomForestApplication_source_core_profiler_Samples_mc_20_8_27_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc" 21 12 ]
+            [ "D_Masters_Dissertation_RandomForestApplication_source_core_profiler_Samples_mc_20_8_27_8_start" "D_Masters_Dissertation_RandomForestApplication_source_core_profiler_Samples_mc_20_8_27_8_stop" ]
+            %activity.1 = local;
+            %tmp.3 = getm $.Toybox.Activity;
+            %tmp.4 = getv function ? %tmp.3 :Info;
+            %tmp.1 = newc %tmp.4 ();
+            lputv %activity.1 %tmp.1;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc" 22 12 ]
+            %tmp.5 = lgetv %activity.1;
+            %tmp.7 = getv ? :_cadenceSamples;
+            %tmp.9 = lgetv %step;
+            %tmp.10 = agetv %tmp.7 %tmp.9;
+            putv %tmp.5 :currentCadence %tmp.10;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc" 23 12 ]
+            %tmp.11 = lgetv %activity.1;
+            %tmp.13 = getv ? :_paceSamples;
+            %tmp.15 = lgetv %step;
+            %tmp.16 = agetv %tmp.13 %tmp.15;
+            putv %tmp.11 :currentSpeed %tmp.16;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc" 24 12 ]
+            %tmp.17 = lgetv %activity.1;
+            %tmp.19 = getv ? :_heartRateSamples;
+            %tmp.21 = lgetv %step;
+            %tmp.22 = agetv %tmp.19 %tmp.21;
+            putv %tmp.17 :currentHeartRate %tmp.22;
+[ "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc" 26 12 ]
+            %tmp.24 = lgetv %activity.1;
+            ret %tmp.24;
+D_Masters_Dissertation_RandomForestApplication_source_core_profiler_Samples_mc_20_8_27_8_stop:
+        }
+    }
+}
+[ @file = "D:\Masters Dissertation\RandomForestApplication\source\core\profiler\Samples.mc"; @line = 1; ]
+<init> {
+}

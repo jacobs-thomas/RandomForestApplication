@@ -48,10 +48,10 @@ module Jacobs {
         const LEFT as Integer32 = 1;
         [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc"; @line = 26; @position = 22; ]
         private
-        const RIGHT as Integer32 = 2;
+        const POSITIVE as Integer32 = 1;
         [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc"; @line = 27; @position = 22; ]
         private
-        const POSITIVE as Integer32 = 1;
+        const RATE as Float32 = 0.01;
         [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc"; @line = 31; @position = 20; ]
         private
         var _metrics as Array<Metric>;
@@ -61,11 +61,11 @@ module Jacobs {
         [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc"; @line = 33; @position = 20; ]
         private
         var _previousResponse = 0;
-        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc"; @line = 37; ]
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc"; @line = 38; ]
         public
         function initialize() as Void {
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_38_8_51_8_start:
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 44 12 ]
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_39_8_67_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 45 12 ]
             %tmp.1 = newa 3;
             %tmp.5 = getv ? :Cadence;
             %tmp.2 = newc %tmp.5 ();
@@ -80,347 +80,461 @@ D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree
             %tmp.18 = dup %tmp.13;
             %tmp.19 = aputv %tmp.18 2 %tmp.14;
             putv self :_metrics %tmp.19;
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 47 12 ]
-            for @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_47_12_50_12_for_test @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_47_12_50_12_for_incr @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_47_12_50_12_for_end;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_47_12_50_12_for_init:
-            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_47_12_50_12_for_begin" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_47_12_50_12_for_end" ]
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 48 12 ]
+            %tmp.21 = getv ? :_metrics;
+            %tmp.22 = 0;
+            %tmp.23 = agetv %tmp.21 %tmp.22;
+            %tmp.24 = getv %tmp.23 :range;
+            %tmp.25 = getv function %tmp.24 :setMinimum;
+            %tmp.26 = 170;
+            invoke %tmp.24 %tmp.25(%tmp.26);
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 49 12 ]
+            %tmp.28 = getv ? :_metrics;
+            %tmp.29 = 0;
+            %tmp.30 = agetv %tmp.28 %tmp.29;
+            %tmp.31 = getv %tmp.30 :range;
+            %tmp.32 = getv function %tmp.31 :setMaximum;
+            %tmp.33 = 180;
+            invoke %tmp.31 %tmp.32(%tmp.33);
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 50 12 ]
+            %tmp.34 = getv self :_metrics;
+            %tmp.35 = 0;
+            %tmp.36 = agetv %tmp.34 %tmp.35;
+            %tmp.37 = 0.2;
+            putv %tmp.36 :userPriority %tmp.37;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 53 12 ]
+            %tmp.39 = getv ? :_metrics;
+            %tmp.40 = 1;
+            %tmp.41 = agetv %tmp.39 %tmp.40;
+            %tmp.42 = getv %tmp.41 :range;
+            %tmp.43 = getv function %tmp.42 :setMinimum;
+            %tmp.44 = 5;
+            invoke %tmp.42 %tmp.43(%tmp.44);
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 54 12 ]
+            %tmp.46 = getv ? :_metrics;
+            %tmp.47 = 1;
+            %tmp.48 = agetv %tmp.46 %tmp.47;
+            %tmp.49 = getv %tmp.48 :range;
+            %tmp.50 = getv function %tmp.49 :setMaximum;
+            %tmp.51 = 5.3;
+            invoke %tmp.49 %tmp.50(%tmp.51);
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 55 12 ]
+            %tmp.52 = getv self :_metrics;
+            %tmp.53 = 1;
+            %tmp.54 = agetv %tmp.52 %tmp.53;
+            %tmp.55 = 0.2;
+            putv %tmp.54 :userPriority %tmp.55;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 58 12 ]
+            %tmp.57 = getv ? :_metrics;
+            %tmp.58 = 2;
+            %tmp.59 = agetv %tmp.57 %tmp.58;
+            %tmp.60 = getv %tmp.59 :range;
+            %tmp.61 = getv function %tmp.60 :setMinimum;
+            %tmp.62 = 160;
+            invoke %tmp.60 %tmp.61(%tmp.62);
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 59 12 ]
+            %tmp.64 = getv ? :_metrics;
+            %tmp.65 = 2;
+            %tmp.66 = agetv %tmp.64 %tmp.65;
+            %tmp.67 = getv %tmp.66 :range;
+            %tmp.68 = getv function %tmp.67 :setMaximum;
+            %tmp.69 = 170;
+            invoke %tmp.67 %tmp.68(%tmp.69);
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 60 12 ]
+            %tmp.70 = getv self :_metrics;
+            %tmp.71 = 2;
+            %tmp.72 = agetv %tmp.70 %tmp.71;
+            %tmp.73 = 0.4;
+            putv %tmp.72 :userPriority %tmp.73;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 63 12 ]
+            for @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_63_12_66_12_for_test @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_63_12_66_12_for_incr @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_63_12_66_12_for_end;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_63_12_66_12_for_init:
+            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_63_12_66_12_for_begin" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_63_12_66_12_for_end" ]
             %i.1 = local;
-            %tmp.20 = 0;
-            lputv %i.1 %tmp.20;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_47_12_50_12_for_test:
-            %tmp.22 = lgetv %i.1;
-            %tmp.24 = getv ? :NUMBER_OF_TREES;
-            %tmp.25 = lt %tmp.22 %tmp.24;
-            bf %tmp.25 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_47_12_50_12_for_end;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_47_12_50_12_for_begin:
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_48_12_50_12_start:
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 49 16 ]
-            %tmp.27 = getv ? :_trees;
-            %tmp.28 = getv function %tmp.27 :add;
-            %tmp.32 = getv ? :Tree;
-            %tmp.33 = getm $.Toybox.Math;
-            %tmp.34 = getv function %tmp.33 :rand;
-            %tmp.35 = invoke %tmp.33 %tmp.34();
-            %tmp.36 = 10;
-            %tmp.37 = mod %tmp.35 %tmp.36;
-            %tmp.38 = 4;
-            %tmp.39 = add %tmp.37 %tmp.38;
-            %tmp.29 = newc %tmp.32 (%tmp.39);
-            invoke %tmp.27 %tmp.28(%tmp.29);
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_48_12_50_12_stop:
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_47_12_50_12_for_incr:
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 47 ]
-            %tmp.42 = lgetv %i.1;
-            %tmp.43 = add %tmp.42 1;
-            lputv %i.1 %tmp.43;
-            goto @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_47_12_50_12_for_test;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_47_12_50_12_for_end:
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_38_8_51_8_stop:
+            %tmp.74 = 0;
+            lputv %i.1 %tmp.74;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_63_12_66_12_for_test:
+            %tmp.76 = lgetv %i.1;
+            %tmp.78 = getv ? :NUMBER_OF_TREES;
+            %tmp.79 = lt %tmp.76 %tmp.78;
+            bf %tmp.79 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_63_12_66_12_for_end;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_63_12_66_12_for_begin:
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_64_12_66_12_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 65 16 ]
+            %tmp.81 = getv ? :_trees;
+            %tmp.82 = getv function %tmp.81 :add;
+            %tmp.86 = getv ? :Tree;
+            %tmp.87 = getm $.Toybox.Math;
+            %tmp.88 = getv function %tmp.87 :rand;
+            %tmp.89 = invoke %tmp.87 %tmp.88();
+            %tmp.90 = 10;
+            %tmp.91 = mod %tmp.89 %tmp.90;
+            %tmp.92 = 4;
+            %tmp.93 = add %tmp.91 %tmp.92;
+            %tmp.83 = newc %tmp.86 (%tmp.93);
+            invoke %tmp.81 %tmp.82(%tmp.83);
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_64_12_66_12_stop:
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_63_12_66_12_for_incr:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 63 ]
+            %tmp.96 = lgetv %i.1;
+            %tmp.97 = add %tmp.96 1;
+            lputv %i.1 %tmp.97;
+            goto @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_63_12_66_12_for_test;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_63_12_66_12_for_end:
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_39_8_67_8_stop:
         }
-        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc"; @line = 55; ]
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc"; @line = 71; ]
         public
-        function evaluate() as MetricQueue {
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_56_8_123_8_start:
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 68 12 ]
-            for @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_68_12_68_106_for_test @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_68_12_68_106_for_incr @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_68_12_68_106_for_end;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_68_12_68_106_for_init:
-            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_68_12_68_106_for_begin" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_68_12_68_106_for_end" ]
+        function evaluate(activity as Activity.Info) as MetricQueue {
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_72_8_138_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 84 12 ]
+            for @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_84_12_84_88_for_test @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_84_12_84_88_for_incr @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_84_12_84_88_for_end;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_84_12_84_88_for_init:
+            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_84_12_84_88_for_begin" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_84_12_84_88_for_end" ]
             %i.1 = local;
             %tmp.1 = 0;
             lputv %i.1 %tmp.1;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_68_12_68_106_for_test:
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_84_12_84_88_for_test:
             %tmp.3 = lgetv %i.1;
             %tmp.5 = getv ? :_metrics;
             %tmp.6 = getv function %tmp.5 :size;
             %tmp.7 = invoke %tmp.5 %tmp.6();
             %tmp.8 = lt %tmp.3 %tmp.7;
-            bf %tmp.8 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_68_12_68_106_for_end;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_68_12_68_106_for_begin:
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_68_53_68_106_start:
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 68 55 ]
+            bf %tmp.8 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_84_12_84_88_for_end;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_84_12_84_88_for_begin:
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_84_53_84_88_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 84 55 ]
             %tmp.10 = getv ? :_metrics;
             %tmp.12 = lgetv %i.1;
             %tmp.13 = agetv %tmp.10 %tmp.12;
             %tmp.14 = getv function %tmp.13 :addSample;
-            %tmp.15 = getm $.Toybox.Activity;
-            %tmp.16 = getv function %tmp.15 :getActivityInfo;
-            %tmp.17 = invoke %tmp.15 %tmp.16();
-            invoke %tmp.13 %tmp.14(%tmp.17);
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_68_53_68_106_stop:
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_68_12_68_106_for_incr:
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 68 ]
-            %tmp.20 = lgetv %i.1;
-            %tmp.21 = add %tmp.20 1;
-            lputv %i.1 %tmp.21;
-            goto @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_68_12_68_106_for_test;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_68_12_68_106_for_end:
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 71 12 ]
-            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_56_8_123_8_start" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_56_8_123_8_stop" ]
+            %tmp.16 = lgetv %activity;
+            invoke %tmp.13 %tmp.14(%tmp.16);
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_84_53_84_88_stop:
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_84_12_84_88_for_incr:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 84 ]
+            %tmp.19 = lgetv %i.1;
+            %tmp.20 = add %tmp.19 1;
+            lputv %i.1 %tmp.20;
+            goto @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_84_12_84_88_for_test;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_84_12_84_88_for_end:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 87 12 ]
+            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_72_8_138_8_start" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_72_8_138_8_stop" ]
             %currentNodeIndex.2 = local;
-            %tmp.23 = getv ? :ROOT_NODE;
-            lputv %currentNodeIndex.2 %tmp.23;
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 72 12 ]
-            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_56_8_123_8_start" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_56_8_123_8_stop" ]
+            %tmp.22 = getv ? :ROOT_NODE;
+            lputv %currentNodeIndex.2 %tmp.22;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 88 12 ]
+            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_72_8_138_8_start" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_72_8_138_8_stop" ]
             %metricResults.3 = local;
-            %tmp.24 = newa 3;
-            %tmp.25 = 0;
-            %tmp.26 = dup %tmp.24;
-            %tmp.27 = aputv %tmp.26 0 %tmp.25;
-            %tmp.28 = 0;
-            %tmp.29 = dup %tmp.27;
-            %tmp.30 = aputv %tmp.29 1 %tmp.28;
-            %tmp.31 = 0;
-            %tmp.32 = dup %tmp.30;
-            %tmp.33 = aputv %tmp.32 2 %tmp.31;
-            lputv %metricResults.3 %tmp.33;
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 73 12 ]
-            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_56_8_123_8_start" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_56_8_123_8_stop" ]
+            %tmp.23 = newa 3;
+            %tmp.24 = 0;
+            %tmp.25 = dup %tmp.23;
+            %tmp.26 = aputv %tmp.25 0 %tmp.24;
+            %tmp.27 = 0;
+            %tmp.28 = dup %tmp.26;
+            %tmp.29 = aputv %tmp.28 1 %tmp.27;
+            %tmp.30 = 0;
+            %tmp.31 = dup %tmp.29;
+            %tmp.32 = aputv %tmp.31 2 %tmp.30;
+            lputv %metricResults.3 %tmp.32;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 89 12 ]
+            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_72_8_138_8_start" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_72_8_138_8_stop" ]
             %currentNode.4 = local;
-            %tmp.34 = null;
-            lputv %currentNode.4 %tmp.34;
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 74 12 ]
-            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_56_8_123_8_start" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_56_8_123_8_stop" ]
+            %tmp.33 = null;
+            lputv %currentNode.4 %tmp.33;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 90 12 ]
+            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_72_8_138_8_start" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_72_8_138_8_stop" ]
             %tree.5 = local;
-            %tmp.35 = null;
-            lputv %tree.5 %tmp.35;
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 75 12 ]
-            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_56_8_123_8_start" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_56_8_123_8_stop" ]
+            %tmp.34 = null;
+            lputv %tree.5 %tmp.34;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 91 12 ]
+            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_72_8_138_8_start" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_72_8_138_8_stop" ]
             %heuristicValue.6 = local;
-            %tmp.36 = 0;
-            lputv %heuristicValue.6 %tmp.36;
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 76 12 ]
-            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_56_8_123_8_start" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_56_8_123_8_stop" ]
+            %tmp.35 = 0;
+            lputv %heuristicValue.6 %tmp.35;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 92 12 ]
+            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_72_8_138_8_start" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_72_8_138_8_stop" ]
             %highestPriority.7 = local;
-            %tmp.37 = 0;
-            lputv %highestPriority.7 %tmp.37;
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 79 12 ]
-            for @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_79_12_109_12_for_test @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_79_12_109_12_for_incr @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_79_12_109_12_for_end;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_79_12_109_12_for_init:
-            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_79_12_109_12_for_begin" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_79_12_109_12_for_end" ]
+            %tmp.36 = 0;
+            lputv %highestPriority.7 %tmp.36;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 95 12 ]
+            for @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_95_12_122_12_for_test @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_95_12_122_12_for_incr @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_95_12_122_12_for_end;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_95_12_122_12_for_init:
+            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_95_12_122_12_for_begin" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_95_12_122_12_for_end" ]
             %i.8 = local;
-            %tmp.38 = 0;
-            lputv %i.8 %tmp.38;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_79_12_109_12_for_test:
-            %tmp.40 = lgetv %i.8;
-            %tmp.42 = getv ? :_trees;
-            %tmp.43 = getv function %tmp.42 :size;
-            %tmp.44 = invoke %tmp.42 %tmp.43();
-            %tmp.45 = lt %tmp.40 %tmp.44;
-            bf %tmp.45 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_79_12_109_12_for_end;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_79_12_109_12_for_begin:
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_80_12_109_12_start:
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 81 16 ]
-            %tmp.47 = getv ? :_trees;
-            %tmp.49 = lgetv %i.8;
-            %tmp.50 = agetv %tmp.47 %tmp.49;
-            lputv %tree.5 %tmp.50;
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 82 16 ]
-            %tmp.51 = 0;
-            lputv %currentNodeIndex.2 %tmp.51;
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 83 16 ]
-            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_80_12_109_12_start" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_80_12_109_12_stop" ]
+            %tmp.37 = 0;
+            lputv %i.8 %tmp.37;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_95_12_122_12_for_test:
+            %tmp.39 = lgetv %i.8;
+            %tmp.41 = getv ? :_trees;
+            %tmp.42 = getv function %tmp.41 :size;
+            %tmp.43 = invoke %tmp.41 %tmp.42();
+            %tmp.44 = lt %tmp.39 %tmp.43;
+            bf %tmp.44 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_95_12_122_12_for_end;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_95_12_122_12_for_begin:
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_96_12_122_12_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 97 16 ]
+            %tmp.46 = getv ? :_trees;
+            %tmp.48 = lgetv %i.8;
+            %tmp.49 = agetv %tmp.46 %tmp.48;
+            lputv %tree.5 %tmp.49;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 98 16 ]
+            %tmp.50 = 0;
+            lputv %currentNodeIndex.2 %tmp.50;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 99 16 ]
+            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_96_12_122_12_start" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_96_12_122_12_stop" ]
             %exit.9 = local;
-            %tmp.52 = false;
-            lputv %exit.9 %tmp.52;
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 85 16 ]
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_85_16_86_57_if_stmt:
-            %tmp.53 = lgetv %tree.5;
-            %tmp.54 = getv %tmp.53 :previousResponse;
-            %tmp.56 = getv ? :_previousResponse;
-            %tmp.57 = ne %tmp.54 %tmp.56;
-            bf %tmp.57 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_85_16_86_57_if_false;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_85_16_86_57_if_true:
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_85_63_85_100_start:
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 85 65 ]
-            %tmp.58 = lgetv %tree.5;
-            %tmp.59 = lgetv %tree.5;
-            %tmp.60 = getv %tmp.59 :weight;
-            %tmp.61 = lgetv %tree.5;
-            %tmp.62 = getv %tmp.61 :weight;
-            %tmp.63 = 0.01;
-            %tmp.64 = mul %tmp.62 %tmp.63;
-            %tmp.65 = sub %tmp.60 %tmp.64;
-            putv %tmp.58 :weight dup %tmp.65;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_85_63_85_100_stop:
-            goto @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_85_16_86_57_if_end;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_85_16_86_57_if_false:
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_86_21_86_57_start:
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 86 23 ]
-            %tmp.66 = lgetv %tree.5;
-            %tmp.67 = lgetv %tree.5;
-            %tmp.68 = getv %tmp.67 :weight;
-            %tmp.69 = lgetv %tree.5;
-            %tmp.70 = getv %tmp.69 :weight;
-            %tmp.71 = 0.1;
-            %tmp.72 = mul %tmp.70 %tmp.71;
-            %tmp.73 = add %tmp.68 %tmp.72;
-            putv %tmp.66 :weight dup %tmp.73;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_86_21_86_57_stop:
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_85_16_86_57_if_end:
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 89 16 ]
-            while @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_89_16_108_16_while_test @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_89_16_108_16_while_end;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_89_16_108_16_while_test:
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_89_22_89_70_begin:
-            %tmp.75 = lgetv %currentNodeIndex.2;
-            %tmp.76 = lgetv %tree.5;
-            %tmp.77 = getv %tmp.76 :nodes;
-            %tmp.78 = getv function %tmp.77 :size;
-            %tmp.79 = invoke %tmp.77 %tmp.78();
-            %tmp.80 = lt %tmp.75 %tmp.79;
-            %tmp.81 = dup %tmp.80;
-            bf %tmp.81 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_89_62_89_70_end;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_89_62_89_70_true:
-            %tmp.83 = lgetv %exit.9;
-            %tmp.84 = false;
-            %tmp.85 = eq %tmp.83 %tmp.84;
-            %tmp.86 = and %tmp.80 %tmp.85;
-            push %tmp.86;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_89_62_89_70_end:
-            %tmp.87 = phi [%tmp.81 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_89_22_89_70_begin] [%tmp.86 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_89_62_89_70_true] [%tmp.87 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_89_62_89_70_end];
-            bf %tmp.87 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_89_16_108_16_while_end;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_89_16_108_16_while_begin:
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_90_16_108_16_start:
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 92 20 ]
-            %tmp.88 = lgetv %tree.5;
-            %tmp.89 = getv %tmp.88 :nodes;
-            %tmp.91 = lgetv %currentNodeIndex.2;
-            %tmp.92 = agetv %tmp.89 %tmp.91;
-            lputv %currentNode.4 %tmp.92;
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 93 20 ]
-            %tmp.94 = getv ? :_metrics;
-            %tmp.95 = lgetv %currentNode.4;
-            %tmp.96 = getv %tmp.95 :metric;
-            %tmp.97 = agetv %tmp.94 %tmp.96;
-            %tmp.98 = getv function %tmp.97 :getHeuristics;
-            %tmp.99 = invoke %tmp.97 %tmp.98();
-            %tmp.100 = getv function %tmp.99 :getHeuristic;
-            %tmp.101 = lgetv %currentNode.4;
-            %tmp.102 = getv %tmp.101 :heuristic;
-            %tmp.103 = invoke %tmp.99 %tmp.100(%tmp.102);
-            lputv %heuristicValue.6 %tmp.103;
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 96 20 ]
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_96_20_101_20_if_stmt:
-            %tmp.105 = lgetv %heuristicValue.6;
-            %tmp.106 = lgetv %currentNode.4;
-            %tmp.107 = getv %tmp.106 :value;
-            %tmp.108 = lt %tmp.105 %tmp.107;
-            bf %tmp.108 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_96_20_101_20_if_end;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_96_20_101_20_if_true:
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_97_20_101_20_start:
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 98 24 ]
-            %tmp.109 = lgetv %currentNode.4;
-            %tmp.110 = lgetv %currentNode.4;
-            %tmp.111 = getv %tmp.110 :value;
-            %tmp.113 = lgetv %heuristicValue.6;
-            %tmp.114 = lgetv %currentNode.4;
-            %tmp.115 = getv %tmp.114 :value;
-            %tmp.116 = sub %tmp.113 %tmp.115;
-            %tmp.117 = add %tmp.111 %tmp.116;
-            putv %tmp.109 :value dup %tmp.117;
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 99 24 ]
-            %tmp.119 = getv ? :NODES_PER_BRANCH;
-            %tmp.121 = lgetv %currentNodeIndex.2;
-            %tmp.122 = mul %tmp.119 %tmp.121;
-            %tmp.124 = getv ? :LEFT;
-            %tmp.125 = add %tmp.122 %tmp.124;
-            lputv %currentNodeIndex.2 %tmp.125;
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 100 24 ]
-            goto @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_89_16_108_16_while_test;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_97_20_101_20_stop:
-            goto @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_96_20_101_20_if_end;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_96_20_101_20_if_end:
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 104 20 ]
-            %tmp.126 = lgetv %currentNode.4;
-            %tmp.127 = lgetv %currentNode.4;
-            %tmp.128 = getv %tmp.127 :value;
-            %tmp.130 = lgetv %heuristicValue.6;
-            %tmp.131 = lgetv %currentNode.4;
-            %tmp.132 = getv %tmp.131 :value;
-            %tmp.133 = sub %tmp.130 %tmp.132;
-            %tmp.134 = add %tmp.128 %tmp.133;
-            putv %tmp.126 :value dup %tmp.134;
+            %tmp.51 = false;
+            lputv %exit.9 %tmp.51;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 102 16 ]
+            while @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_102_16_121_16_while_test @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_102_16_121_16_while_end;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_102_16_121_16_while_test:
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_102_22_102_70_begin:
+            %tmp.53 = lgetv %currentNodeIndex.2;
+            %tmp.54 = lgetv %tree.5;
+            %tmp.55 = getv %tmp.54 :nodes;
+            %tmp.56 = getv function %tmp.55 :size;
+            %tmp.57 = invoke %tmp.55 %tmp.56();
+            %tmp.58 = lt %tmp.53 %tmp.57;
+            %tmp.59 = dup %tmp.58;
+            bf %tmp.59 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_102_62_102_70_end;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_102_62_102_70_true:
+            %tmp.61 = lgetv %exit.9;
+            %tmp.62 = false;
+            %tmp.63 = eq %tmp.61 %tmp.62;
+            %tmp.64 = and %tmp.58 %tmp.63;
+            push %tmp.64;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_102_62_102_70_end:
+            %tmp.65 = phi [%tmp.59 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_102_22_102_70_begin] [%tmp.64 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_102_62_102_70_true] [%tmp.65 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_102_62_102_70_end];
+            bf %tmp.65 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_102_16_121_16_while_end;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_102_16_121_16_while_begin:
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_103_16_121_16_start:
 [ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 105 20 ]
-            %tmp.135 = lgetv %metricResults.3;
-            %tmp.136 = lgetv %metricResults.3;
-            %tmp.137 = lgetv %currentNode.4;
-            %tmp.138 = getv %tmp.137 :metric;
-            %tmp.139 = agetv %tmp.136 %tmp.138;
-            %tmp.141 = getv ? :POSITIVE;
-            %tmp.142 = lgetv %tree.5;
-            %tmp.143 = getv %tmp.142 :weight;
-            %tmp.144 = mul %tmp.141 %tmp.143;
-            %tmp.145 = add %tmp.139 %tmp.144;
-            %tmp.146 = lgetv %currentNode.4;
-            %tmp.147 = getv %tmp.146 :metric;
-            aputv %tmp.135 %tmp.147 dup %tmp.145;
+            %tmp.66 = lgetv %tree.5;
+            %tmp.67 = getv %tmp.66 :nodes;
+            %tmp.69 = lgetv %currentNodeIndex.2;
+            %tmp.70 = agetv %tmp.67 %tmp.69;
+            lputv %currentNode.4 %tmp.70;
 [ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 106 20 ]
-            %tmp.148 = lgetv %tree.5;
-            %tmp.149 = lgetv %currentNode.4;
-            %tmp.150 = getv %tmp.149 :metric;
-            putv %tmp.148 :previousResponse %tmp.150;
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 107 20 ]
-            %tmp.151 = true;
-            lputv %exit.9 %tmp.151;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_90_16_108_16_stop:
-            goto @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_89_16_108_16_while_test;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_89_16_108_16_while_end:
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_80_12_109_12_stop:
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_79_12_109_12_for_incr:
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 79 ]
-            %tmp.154 = lgetv %i.8;
-            %tmp.155 = add %tmp.154 1;
-            lputv %i.8 %tmp.155;
-            goto @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_79_12_109_12_for_test;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_79_12_109_12_for_end:
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 113 12 ]
-            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_56_8_123_8_start" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_56_8_123_8_stop" ]
+            %tmp.72 = getv ? :_metrics;
+            %tmp.73 = lgetv %currentNode.4;
+            %tmp.74 = getv %tmp.73 :metric;
+            %tmp.75 = agetv %tmp.72 %tmp.74;
+            %tmp.76 = getv function %tmp.75 :getHeuristics;
+            %tmp.77 = invoke %tmp.75 %tmp.76();
+            %tmp.78 = getv function %tmp.77 :getHeuristic;
+            %tmp.79 = lgetv %currentNode.4;
+            %tmp.80 = getv %tmp.79 :heuristic;
+            %tmp.81 = invoke %tmp.77 %tmp.78(%tmp.80);
+            lputv %heuristicValue.6 %tmp.81;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 109 20 ]
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_109_20_114_20_if_stmt:
+            %tmp.83 = lgetv %heuristicValue.6;
+            %tmp.84 = lgetv %currentNode.4;
+            %tmp.85 = getv %tmp.84 :value;
+            %tmp.86 = lt %tmp.83 %tmp.85;
+            bf %tmp.86 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_109_20_114_20_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_109_20_114_20_if_true:
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_110_20_114_20_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 111 24 ]
+            %tmp.87 = lgetv %currentNode.4;
+            %tmp.88 = lgetv %currentNode.4;
+            %tmp.89 = getv %tmp.88 :value;
+            %tmp.91 = lgetv %heuristicValue.6;
+            %tmp.92 = lgetv %currentNode.4;
+            %tmp.93 = getv %tmp.92 :value;
+            %tmp.94 = sub %tmp.91 %tmp.93;
+            %tmp.95 = add %tmp.89 %tmp.94;
+            putv %tmp.87 :value dup %tmp.95;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 112 24 ]
+            %tmp.97 = getv ? :NODES_PER_BRANCH;
+            %tmp.99 = lgetv %currentNodeIndex.2;
+            %tmp.100 = mul %tmp.97 %tmp.99;
+            %tmp.102 = getv ? :LEFT;
+            %tmp.103 = add %tmp.100 %tmp.102;
+            lputv %currentNodeIndex.2 %tmp.103;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 113 24 ]
+            goto @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_102_16_121_16_while_test;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_110_20_114_20_stop:
+            goto @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_109_20_114_20_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_109_20_114_20_if_end:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 117 20 ]
+            %tmp.104 = lgetv %currentNode.4;
+            %tmp.105 = lgetv %currentNode.4;
+            %tmp.106 = getv %tmp.105 :value;
+            %tmp.108 = lgetv %heuristicValue.6;
+            %tmp.109 = lgetv %currentNode.4;
+            %tmp.110 = getv %tmp.109 :value;
+            %tmp.111 = sub %tmp.108 %tmp.110;
+            %tmp.112 = add %tmp.106 %tmp.111;
+            putv %tmp.104 :value dup %tmp.112;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 118 20 ]
+            %tmp.113 = lgetv %metricResults.3;
+            %tmp.114 = lgetv %metricResults.3;
+            %tmp.115 = lgetv %currentNode.4;
+            %tmp.116 = getv %tmp.115 :metric;
+            %tmp.117 = agetv %tmp.114 %tmp.116;
+            %tmp.119 = getv ? :POSITIVE;
+            %tmp.120 = lgetv %tree.5;
+            %tmp.121 = getv %tmp.120 :weight;
+            %tmp.122 = mul %tmp.119 %tmp.121;
+            %tmp.123 = add %tmp.117 %tmp.122;
+            %tmp.124 = lgetv %currentNode.4;
+            %tmp.125 = getv %tmp.124 :metric;
+            aputv %tmp.113 %tmp.125 dup %tmp.123;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 119 20 ]
+            %tmp.126 = lgetv %tree.5;
+            %tmp.127 = lgetv %currentNode.4;
+            %tmp.128 = getv %tmp.127 :metric;
+            putv %tmp.126 :previousResponse %tmp.128;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 120 20 ]
+            %tmp.129 = true;
+            lputv %exit.9 %tmp.129;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_103_16_121_16_stop:
+            goto @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_102_16_121_16_while_test;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_102_16_121_16_while_end:
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_96_12_122_12_stop:
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_95_12_122_12_for_incr:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 95 ]
+            %tmp.132 = lgetv %i.8;
+            %tmp.133 = add %tmp.132 1;
+            lputv %i.8 %tmp.133;
+            goto @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_95_12_122_12_for_test;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_95_12_122_12_for_end:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 126 12 ]
+            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_72_8_138_8_start" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_72_8_138_8_stop" ]
             %results.10 = local;
-            %tmp.159 = getv ? :MetricQueue;
-            %tmp.156 = newc %tmp.159 ();
-            lputv %results.10 %tmp.156;
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 114 12 ]
-            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_56_8_123_8_start" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_56_8_123_8_stop" ]
-            %resultValue.11 = local;
-            %tmp.160 = 0;
-            lputv %resultValue.11 %tmp.160;
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 116 12 ]
-            for @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_116_12_119_12_for_test @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_116_12_119_12_for_incr @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_116_12_119_12_for_end;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_116_12_119_12_for_init:
-            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_116_12_119_12_for_begin" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_116_12_119_12_for_end" ]
+            %tmp.137 = getv ? :MetricQueue;
+            %tmp.134 = newc %tmp.137 ();
+            lputv %results.10 %tmp.134;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 127 12 ]
+            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_72_8_138_8_start" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_72_8_138_8_stop" ]
+            %priorityMetric.11 = local;
+            %tmp.138 = 0;
+            lputv %priorityMetric.11 %tmp.138;
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 129 12 ]
+            for @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_129_12_133_12_for_test @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_129_12_133_12_for_incr @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_129_12_133_12_for_end;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_129_12_133_12_for_init:
+            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_129_12_133_12_for_begin" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_129_12_133_12_for_end" ]
             %i.12 = local;
-            %tmp.161 = 0;
-            lputv %i.12 %tmp.161;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_116_12_119_12_for_test:
-            %tmp.163 = lgetv %i.12;
-            %tmp.164 = lgetv %metricResults.3;
-            %tmp.165 = getv function %tmp.164 :size;
-            %tmp.166 = invoke %tmp.164 %tmp.165();
-            %tmp.167 = lt %tmp.163 %tmp.166;
-            bf %tmp.167 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_116_12_119_12_for_end;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_116_12_119_12_for_begin:
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_117_12_119_12_start:
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 118 16 ]
-            %tmp.168 = lgetv %results.10;
-            %tmp.169 = getv function %tmp.168 :enqueue;
-            %tmp.171 = getv ? :_metrics;
+            %tmp.139 = 0;
+            lputv %i.12 %tmp.139;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_129_12_133_12_for_test:
+            %tmp.141 = lgetv %i.12;
+            %tmp.142 = lgetv %metricResults.3;
+            %tmp.143 = getv function %tmp.142 :size;
+            %tmp.144 = invoke %tmp.142 %tmp.143();
+            %tmp.145 = lt %tmp.141 %tmp.144;
+            bf %tmp.145 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_129_12_133_12_for_end;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_129_12_133_12_for_begin:
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_130_12_133_12_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 131 16 ]
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_131_16_131_90_if_stmt:
+            %tmp.147 = lgetv %metricResults.3;
+            %tmp.149 = lgetv %i.12;
+            %tmp.150 = agetv %tmp.147 %tmp.149;
+            %tmp.152 = lgetv %metricResults.3;
+            %tmp.154 = lgetv %priorityMetric.11;
+            %tmp.155 = agetv %tmp.152 %tmp.154;
+            %tmp.156 = gt %tmp.150 %tmp.155;
+            bf %tmp.156 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_131_16_131_90_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_131_16_131_90_if_true:
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_131_69_131_90_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 131 71 ]
+            %tmp.158 = lgetv %i.12;
+            lputv %priorityMetric.11 %tmp.158;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_131_69_131_90_stop:
+            goto @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_131_16_131_90_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_131_16_131_90_if_end:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 132 16 ]
+            %tmp.159 = lgetv %results.10;
+            %tmp.160 = getv function %tmp.159 :enqueue;
+            %tmp.162 = getv ? :_metrics;
+            %tmp.164 = lgetv %i.12;
+            %tmp.165 = agetv %tmp.162 %tmp.164;
+            %tmp.167 = lgetv %metricResults.3;
+            %tmp.169 = lgetv %i.12;
+            %tmp.170 = agetv %tmp.167 %tmp.169;
+            invoke %tmp.159 %tmp.160(%tmp.165, %tmp.170);
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_130_12_133_12_stop:
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_129_12_133_12_for_incr:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 129 ]
             %tmp.173 = lgetv %i.12;
-            %tmp.174 = agetv %tmp.171 %tmp.173;
-            %tmp.176 = lgetv %metricResults.3;
-            %tmp.178 = lgetv %i.12;
-            %tmp.179 = agetv %tmp.176 %tmp.178;
-            invoke %tmp.168 %tmp.169(%tmp.174, %tmp.179);
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_117_12_119_12_stop:
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_116_12_119_12_for_incr:
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 116 ]
-            %tmp.182 = lgetv %i.12;
-            %tmp.183 = add %tmp.182 1;
-            lputv %i.12 %tmp.183;
-            goto @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_116_12_119_12_for_test;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_116_12_119_12_for_end:
-[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 122 12 ]
-            %tmp.185 = lgetv %results.10;
-            ret %tmp.185;
-D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_56_8_123_8_stop:
+            %tmp.174 = add %tmp.173 1;
+            lputv %i.12 %tmp.174;
+            goto @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_129_12_133_12_for_test;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_129_12_133_12_for_end:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 135 12 ]
+            %tmp.175 = self;
+            %tmp.176 = getv function %tmp.175 :backwardPropagation;
+            %tmp.178 = lgetv %priorityMetric.11;
+            invoke %tmp.175 %tmp.176(%tmp.178);
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 137 12 ]
+            %tmp.180 = lgetv %results.10;
+            ret %tmp.180;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_72_8_138_8_stop:
+        }
+        [ @file = "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc"; @line = 140; ]
+        private
+        function backwardPropagation(priority as Integer32) {
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_141_8_148_8_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 142 12 ]
+            for @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_142_12_147_12_for_test @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_142_12_147_12_for_incr @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_142_12_147_12_for_end;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_142_12_147_12_for_init:
+            [ "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_142_12_147_12_for_begin" "D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_142_12_147_12_for_end" ]
+            %i.1 = local;
+            %tmp.1 = 0;
+            lputv %i.1 %tmp.1;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_142_12_147_12_for_test:
+            %tmp.3 = lgetv %i.1;
+            %tmp.5 = getv ? :_trees;
+            %tmp.6 = getv function %tmp.5 :size;
+            %tmp.7 = invoke %tmp.5 %tmp.6();
+            %tmp.8 = lt %tmp.3 %tmp.7;
+            bf %tmp.8 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_142_12_147_12_for_end;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_142_12_147_12_for_begin:
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_143_12_147_12_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 144 16 ]
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_144_16_144_71_if_stmt:
+            %tmp.10 = getv ? :_trees;
+            %tmp.12 = lgetv %i.1;
+            %tmp.13 = agetv %tmp.10 %tmp.12;
+            %tmp.14 = getv %tmp.13 :previousResponse;
+            %tmp.16 = lgetv %priority;
+            %tmp.17 = eq %tmp.14 %tmp.16;
+            bf %tmp.17 @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_144_16_144_71_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_144_16_144_71_if_true:
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_144_59_144_71_start:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 144 61 ]
+            goto @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_142_12_147_12_for_incr;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_144_59_144_71_stop:
+            goto @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_144_16_144_71_if_end;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_144_16_144_71_if_end:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 146 16 ]
+            %tmp.18 = getv self :_trees;
+            %tmp.20 = lgetv %i.1;
+            %tmp.21 = agetv %tmp.18 %tmp.20;
+            %tmp.22 = getv self :_trees;
+            %tmp.24 = lgetv %i.1;
+            %tmp.25 = agetv %tmp.22 %tmp.24;
+            %tmp.26 = getv %tmp.25 :weight;
+            %tmp.28 = getv ? :_trees;
+            %tmp.30 = lgetv %i.1;
+            %tmp.31 = agetv %tmp.28 %tmp.30;
+            %tmp.32 = getv %tmp.31 :weight;
+            %tmp.34 = getv ? :RATE;
+            %tmp.35 = mul %tmp.32 %tmp.34;
+            %tmp.36 = sub %tmp.26 %tmp.35;
+            putv %tmp.21 :weight dup %tmp.36;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_143_12_147_12_stop:
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_142_12_147_12_for_incr:
+[ "D:\Masters Dissertation\RandomForestApplication\source\random_forest\DecisionTree.mc" 142 ]
+            %tmp.39 = lgetv %i.1;
+            %tmp.40 = add %tmp.39 1;
+            lputv %i.1 %tmp.40;
+            goto @D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_142_12_147_12_for_test;
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_142_12_147_12_for_end:
+D_Masters_Dissertation_RandomForestApplication_source_random_forest_DecisionTree_mc_141_8_148_8_stop:
         }
     }
 }

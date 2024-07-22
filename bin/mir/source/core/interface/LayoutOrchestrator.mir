@@ -53,9 +53,9 @@ D_Masters_Dissertation_RandomForestApplication_source_core_interface_LayoutOrche
             %tmp.3 = lgetv %dc;
             %tmp.4 = getv function %tmp.3 :setColor;
             %tmp.5 = getm $.Toybox.Graphics;
-            %tmp.6 = getv %tmp.5 :COLOR_TRANSPARENT;
+            %tmp.6 = getv %tmp.5 :COLOR_BLACK;
             %tmp.7 = getm $.Toybox.Graphics;
-            %tmp.8 = getv %tmp.7 :COLOR_BLACK;
+            %tmp.8 = getv %tmp.7 :COLOR_TRANSPARENT;
             invoke %tmp.3 %tmp.4(%tmp.6, %tmp.8);
 [ "D:\Masters Dissertation\RandomForestApplication\source\core\interface\LayoutOrchestrator.mc" 50 12 ]
             %tmp.10 = getv ? :_strategyFactory;
