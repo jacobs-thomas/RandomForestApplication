@@ -31,6 +31,7 @@ module Jacobs
         private var _metrics as Array<Metric> = new Array<Metric>[0];
         private var _trees as Array<Tree> = new Array<Tree>[0];
         private var _previousResponse = 0;
+        private var _learningRate = 1.0;
 
 
 
@@ -132,19 +133,31 @@ module Jacobs
                 results.enqueue(_metrics[i], metricResults[i]);
             }
 
-            backwardPropagation(priorityMetric);
+            backwardPropagation(priorityMetric, metricResults);
 
             return results;
         }
 
-        private function backwardPropagation(priority as Integer32)
+        private function backwardPropagation(priority as Integer32, metricResults as Array<Integer32>)
         {
+            var totalMetricResults = 0;
+            for(var i = 0; i < metricResults.size(); i++)
+            {
+                totalMetricResults += metricResults[i];
+            }
+
             for(var i = 0; i < _trees.size(); i++)
             {
-                if(_trees[i].previousResponse == priority) { continue; }
-
-                _trees[i].weight -= _trees[i].weight  * RATE;
+                if(_trees[i].previousResponse != priority) 
+                {
+                    var error = (metricResults[_trees[i].previousResponse] - metricResults[priority]) / totalMetricResults;
+                    var gradient = error * _learningRate;
+                    _trees[i].weight -= gradient;
+                }
             }
+
+            // Adjust learning rate if needed
+            _learningRate *= 0.99;
         }
     }
 }
